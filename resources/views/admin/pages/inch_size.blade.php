@@ -1,0 +1,185 @@
+@extends('admin.admin_main')
+
+@push('plugin-styles')
+    <link rel="stylesheet" href="{{ asset('admin_assets/assets/plugins/plugin.css') }}">
+@endpush
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css" />
+
+@section('content')
+    <div class="container-fluid py-4">
+        <!-- add size -->
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        <div class="row my-4">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0">
+                        <h6>Add INCH Size</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 py-2">
+                        <form class="px-5" action="insertInch" method="POST">
+                            @csrf
+                            <div class="d-flex">
+                                <div class="mb-3 mx-3 w-50">
+                                    <label for="master_size_id" class="form-label">Master Size</label>
+
+                                    <select class="form-select" id="master_size_id" name="master_size_id"
+                                        aria-label="Default select example" required>
+                                        <option value="">Select Master Size</option>
+                                        @foreach ($msize as $item)
+                                            <option value="{{ $item['id'] }}">{{ $item['size_name'] }}</option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
+
+                                <div class="mb-3 mx-3 w-50">
+                                    <label for="unit_id" class="form-label">Unit</label>
+
+                                    <select class="form-select" id="unit_id" name="unit_id"
+                                        aria-label="Default select example" required>
+                                        <option value="">Select Unit </option>
+                                        @foreach ($unit as $item)
+                                            <option value="{{ $item['id'] }}">{{ $item['unit'] }}</option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
+
+                            </div>
+                            <div class="d-flex">
+                                <div class="mb-3 mx-3 w-50">
+                                    <label for="mm_length" class="form-label">Length Inch</label>
+                                    <input type="text" class="form-control" name="inch_length" id="inch_length" required>
+                                </div>
+
+                                <div class="mb-3 mx-3 w-50">
+                                    <label for="mm_breath" class="form-label">Breath in Inch</label>
+                                    <input type="text" class="form-control" name="inch_breath" id="inch_breath" required>
+                                </div>
+                            </div>
+
+                            <div class="d-flex">
+                                <div class="mb-3 mx-3 w-50">
+                                    <label for="status" class="form-label">Status</label>
+                                    <select class="form-select" id="status" name="status"
+                                        aria-label="Default select example">
+                                        <option value="Active">Active</option>
+                                        <option value="Deactive">Deactive</option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- add size   -->
+
+        <!-- table -->
+        <div class="row my-4">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0">
+                        <div id="success-message">
+                            @if (session('delete'))
+                                <div class="alert alert-danger">
+                                    {{ session('delete') }}
+                                </div>
+                            @endif
+                        </div>
+                        <h6>Inch Size List</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0 px-4">
+                            <table class="table align-items-center mb-0" id="myTable">
+                                <thead>
+                                    <tr>
+                                        <th class="text-uppercase">S.No.</th>
+                                        <th class="text-uppercase">Master Size</th>
+                                        <th class="text-uppercase">Unit</th>
+                                        <th class="text-uppercase">Length</th>
+                                        <th class="text-uppercase">Breath</th>
+                                        <th class="text-uppercase">Status</th>
+                                        <th class="opacity-7">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $a = 1; ?>
+                                    @foreach ($sizeinch as $item)
+                                        <?php
+                                        
+                                        $master_size = Illuminate\Support\Facades\DB::table('master_sizes')
+                                            ->where('id', $item->master_size_id)
+                                            ->first();
+                                        $unit = Illuminate\Support\Facades\DB::table('units')
+                                            ->where('id', $item->unit_id)
+                                            ->first();
+                                        
+                                        ?>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <?php echo $a++; ?>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{{ $master_size->size_name }}</td>
+                                            <td>{{ $unit->unit }}</td>
+                                            <td>{{ $item['inch_length'] }}</td>
+                                            <td>{{ $item['inch_breath'] }}</td>
+                                            <td>{{ $item['status'] }}</td>
+                                            <td class="align-middle">
+                                                <a href="{{ url('inch/edit/' . $item->id) }}"
+                                                    class="badge btn btn-success">Edit</a>
+                                                <a href="{{ url('inch/delete/' . $item->id) }}"
+                                                    onclick="return confirm('Are you sure you want to delete this Size?')">
+                                                    <span class="badge btn btn-danger">Delete</span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end table -->
+
+    </div>
+@endsection
+
+@push('plugin-scripts')
+    <script src="{{ asset('assets/plugins/chartjs/chart.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
+@endpush
+
+@push('custom-scripts')
+    <script src="{{ asset('assets/js/dashboard.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var duration = 5000;
+            $('.alert').delay(duration).fadeOut();
+
+            $('#myTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
+    </script>
+@endpush
