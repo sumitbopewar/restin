@@ -24,16 +24,21 @@
             background-image: url('{{ asset('/layouts/img/murron bg.png') }}');
             background-size: cover;
             background-repeat: no-repeat;
-            padding: 10rem;
+            /* padding: 10rem; */
+            padding: 73px;
             color: white;
             font-size: 3rem;
+        }
+
+        .royal_head{
+            color: #f3e37d;
         }
     </style>
 
     <!--<h1>Royal Mattress</h1>-->
     <div class=" text-center home_mattress_head d-grid justify-content-center">
         <img src="{{ asset('layouts/img/RR Logo.png') }}"alt="" style="width: 200px; object-fit: contain;">
-        <h2>Royal Mattress</h2>
+        <h2 class="royal_head">Royal Mattress</h2>
     </div>
 
     <section class="mx-3">
