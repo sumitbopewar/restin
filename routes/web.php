@@ -51,6 +51,12 @@ Route::get('guide_to_good_sleep', [HomeController::class, 'guide'])->name('guide
 
 Route::get('get_product_detail', [HomeController::class, 'get_product_detail']);
 
+Route::get('pillows', [HomeController::class, 'pillows'])->name('pillows');
+
+Route::get('protector', [HomeController::class, 'protector'])->name('protector');
+
+Route::get('topper', [HomeController::class, 'topper'])->name('topper');
+
 Route::get('get_view_product', [HomeController::class, 'get_view_product'])->name('view_product');
 
 

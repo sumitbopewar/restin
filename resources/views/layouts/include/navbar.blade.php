@@ -41,11 +41,11 @@
                         Sleep Essentials
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Pillows</a></li>
+                        <li><a class="dropdown-item" href="{{route('pillows')}}">Pillows</a></li>
 
-                        <li><a class="dropdown-item" href="#">Protector</a></li>
+                        <li><a class="dropdown-item" href="{{route('protector')}}">Protector</a></li>
 
-                        <li><a class="dropdown-item" href="#">Topper</a></li>
+                        <li><a class="dropdown-item" href="{{route('topper')}}">Topper</a></li>
                     </ul>
                 </li>
 

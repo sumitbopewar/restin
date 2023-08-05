@@ -29,6 +29,18 @@ class HomeController extends Controller
         return view('contact');
     }
 
+    public function pillows(){
+        return view('pillows');
+    }
+
+    public function protector(){
+        return view('protector');
+    }
+
+    public function topper(){
+        return view('topper');
+    }
+
     public function cart(){
         return view('cart');
     }
