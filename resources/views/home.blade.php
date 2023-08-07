@@ -119,7 +119,7 @@
                         <div class="_card col-lg-4 col-md-6">
 
                             <div class="card-img">
-                                <a href="#" class="product_id" value="{{ $item->id }}">
+                                <a href="" class="product_id" value="{{ $item->id }}">
                                     <img src="{{ asset('layouts/img/' . $item->image) }}" class="product_img"
                                         alt="" srcset=""></a>
                             </div>

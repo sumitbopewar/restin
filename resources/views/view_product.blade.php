@@ -80,19 +80,14 @@
                             <label for="exampleFormControlInput2" class="form-label">Size</label>
                             <select class="form-select" aria-label="Default select example" id="exampleFormControlInput2">
                                 <!--<option selected>Size Inch</option>-->
-                                @foreach ($home_mattress as $item)
-                                    <?php
-                                   
-                                    $sizemm = Illuminate\Support\Facades\DB::table('size_m_m_s')
-                                        ->where('id', $item->size_mm)
-                                        ->first();
-                                    $sizeinch = Illuminate\Support\Facades\DB::table('size_inches')
-                                        ->where('id', $item->size_inch)
-                                        ->first();
-                                   
-                                    ?>
-                                    <option value="{{$sizemm['id']}}" selected>{{ $sizemm['mm_length'] }} * {{ $sizemm->mm_breath }}</option>
-                                @endforeach
+
+
+
+                                {{-- @foreach ($size_in_mm as $sizemm) --}}
+
+                                    <option value="{{ $size_in_mm['id'] }}" selected>{{ $size_in_mm['mm_length'] }} *
+                                        {{ $size_in_mm['mm_breath'] }}</option>
+                                {{-- @endforeach --}}
 
                             </select>
                         </div>

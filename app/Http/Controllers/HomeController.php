@@ -15,58 +15,65 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $home_mattress = HomeMattress::where('status', 'Active')->Where('master_size_id', 3)->get();
         $royal_mattress = RoyalMattress::where('status', 'Active')->Where('master_size_id', 3)->get();
-        return view('home', compact('home_mattress','royal_mattress'));
+        return view('home', compact('home_mattress', 'royal_mattress'));
     }
-    
-    public function guide(){
+
+    public function guide()
+    {
         return view('guide_to_good_sleep');
     }
 
-    public function contact(){
+    public function contact()
+    {
         return view('contact');
     }
 
-    public function pillows(){
+    public function pillows()
+    {
         return view('pillows');
     }
 
-    public function protector(){
+    public function protector()
+    {
         return view('protector');
     }
 
-    public function topper(){
+    public function topper()
+    {
         return view('topper');
     }
 
-    public function cart(){
+    public function cart()
+    {
         return view('cart');
     }
 
     public function royal()
     {
-         $royal = RoyalMattress::all();
-        return view('royal',compact('royal'));
+        $royal = RoyalMattress::all();
+        return view('royal', compact('royal'));
     }
 
     public function homemattress()
     {
-         $homemattress = HomeMattress::all();
-        return view('homemattress',compact('homemattress'));
+        $homemattress = HomeMattress::all();
+        return view('homemattress', compact('homemattress'));
     }
 
     public function hotel()
     {
-         $hotel = HotelMattress::all();
-        return view('hotel',compact('hotel'));
+        $hotel = HotelMattress::all();
+        return view('hotel', compact('hotel'));
     }
 
     public function hospital()
     {
-         $hospital = HospitalMattress::all();
-        return view('hospital',compact('hospital'));
+        $hospital = HospitalMattress::all();
+        return view('hospital', compact('hospital'));
     }
 
     public function get_product_detail(Request $request)
@@ -83,14 +90,21 @@ class HomeController extends Controller
     }
     public function get_view_product(Request $request)
     {
-        $master_size = MasterSize::all();
-        $unit = Unit::all();
         $home_mattress = session()->get('home_mattress', []);
-        if (empty($home_mattress) ) {
+        if (empty($home_mattress)) {
             return redirect()->back()->with('error', 'Data not found');
         }
-
-        return view('view_product', compact('home_mattress','master_size','unit'));
     
+        $master_size = MasterSize::all();
+        $unit = Unit::all();
+
+        $size_in_mm = SizeMM::where('id', $home_mattress->size_mm)->first();
+        $size_in_inch = SizeInch::where('id', $home_mattress->size_inch)->first();
+
+        // dd($size_in_mm);
+        // die();
+    
+        return view('view_product', compact('home_mattress', 'master_size', 'unit', 'size_in_mm', 'size_in_inch'));
     }
+    
 }
