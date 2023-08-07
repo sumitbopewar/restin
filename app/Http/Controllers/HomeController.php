@@ -101,10 +101,12 @@ class HomeController extends Controller
         $size_in_mm = SizeMM::where('id', $home_mattress->size_mm)->first();
         $size_in_inch = SizeInch::where('id', $home_mattress->size_inch)->first();
 
+        $thickness = Thickness::where('id', $home_mattress->thickness_id)->first();
+
         // dd($size_in_mm);
         // die();
     
-        return view('view_product', compact('home_mattress', 'master_size', 'unit', 'size_in_mm', 'size_in_inch'));
+        return view('view_product', compact('home_mattress', 'master_size', 'unit', 'size_in_mm', 'size_in_inch','thickness'));
     }
     
 }

@@ -96,10 +96,10 @@
                             <label for="exampleFormControlInput3" class="form-label">Thickness</label>
                             <select class="form-select " aria-label="Default select example" id="exampleFormControlInput3">
                                 <!--<option selected>Thickness</option>-->
-                                <option value="1" selected>4 in</option>
-                                <option value="2">4.5 in</option>
+                                <option value="{{ $thickness['id'] }}" >{{ $thickness['thickness'] }}</option>
+                                {{-- <option value="2">4.5 in</option>
                                 <option value="3">5 in</option>
-                                <option value="4">5.5 in</option>
+                                <option value="4">5.5 in</option> --}}
                             </select>
                         </div>
 
