@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ViewProductController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
@@ -58,6 +59,11 @@ Route::get('protector', [HomeController::class, 'protector'])->name('protector')
 Route::get('topper', [HomeController::class, 'topper'])->name('topper');
 
 Route::get('get_view_product', [HomeController::class, 'get_view_product'])->name('view_product');
+
+
+Route::get('get_unit', [ViewProductController::class, 'get_unit']);
+
+Route::get('get_master_size', [ViewProductController::class, 'get_master_size']);
 
 
 
