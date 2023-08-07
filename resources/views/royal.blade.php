@@ -22,7 +22,7 @@
 }
 
 .home_mattress_head {
-    margin-top: 6rem;
+    margin-top: 4rem;
     background-image: url('{{ asset('/layouts/img/murron bg.png') }}');
     background-size: cover;
     background-repeat: no-repeat;

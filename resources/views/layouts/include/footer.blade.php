@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    z-index: 2;
 }
 
 footer {
@@ -36,14 +37,14 @@ ul li {
     list-style: none;
 }
 
-/*  ul{
-            padding-left: 0px;
-        } */
-
 a {
     text-decoration: none;
     color: white;
     cursor: pointer;
+}
+
+a:hover{
+    color: white;
 }
 
 .area {
@@ -52,6 +53,8 @@ a {
     width: 100%;
     height: auto;
     position: absolute;
+    padding-right: 5rem !important;
+    padding-left: 4rem !important;
 }
 
 .circles {
@@ -170,11 +173,18 @@ a {
 }
 
 .footer_icons {
-            width: 25px;
-            height: 30px;
-            margin: 5px;
-            object-fit: scale-down;
-        }
+    width: 25px;
+    height: 30px;
+    margin: 5px;
+    object-fit: scale-down;
+}
+
+@media screen and (max-width: 600px) {
+    .area {
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
+    }
+}
 </style>
 
 
@@ -208,9 +218,12 @@ a {
         <div class="important_links footer-links">
             <h4>Support</h4>
             <ul>
-                <li><a href=""><img class="footer_icons" src="{{ asset('layouts/img/hospital.png') }}" alt="">Privacy & policy</a></li>
-                <li><a href=""><img class="footer_icons" src="{{ asset('layouts/img/terms-and-conditions.png') }}" alt="">Terms & conditions</a></li>
-                <li><a href=""><img class="footer_icons" src="{{ asset('layouts/img/Warranty.png') }}" alt="">Warrenty</a></li>
+                <li><a href=""><img class="footer_icons" src="{{ asset('layouts/img/hospital.png') }}" alt="">Privacy &
+                        policy</a></li>
+                <li><a href=""><img class="footer_icons" src="{{ asset('layouts/img/terms-and-conditions.png') }}"
+                            alt="">Terms & conditions</a></li>
+                <li><a href=""><img class="footer_icons" src="{{ asset('layouts/img/Warranty.png') }}"
+                            alt="">Warranty</a></li>
             </ul>
         </div>
 
