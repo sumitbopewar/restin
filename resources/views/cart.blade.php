@@ -49,7 +49,7 @@
 
 
 
-<div class="d-flex justify-content-center align-items-center" style="margin-top: 98px;background-image: url('{{ asset('/layouts/img/back-2.jpeg') }}');height: 400px;
+<div class="d-flex justify-content-center align-items-center" style="margin-top: 70px;background-image: url('{{ asset('/layouts/img/back-2.jpeg') }}');height: 400px;
     background-size: cover;">
      <div class="">
             <h2 class="fw-bold text-white">Cart</h2>

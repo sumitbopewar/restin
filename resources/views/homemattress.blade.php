@@ -35,7 +35,7 @@
                         <p class="text-title product_name">{{$item->product}}</p>
                     </div>
                     <div class="_card-footer">
-                        <span class="text-title _product_price">Rs. {{$item->price}}</span>
+                        <span class="text-title _product_price"></span>
                         <div class="_card-button">
                             <a href="#"><i class="bi bi-cart3 cart_logo"></i></a>
                         </div>
