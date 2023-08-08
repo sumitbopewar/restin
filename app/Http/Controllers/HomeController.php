@@ -31,6 +31,15 @@ class HomeController extends Controller
     {
         return view('contact');
     }
+    public function warranty()
+    {
+        return view('warranty');
+    }
+
+    public function how_to_choose()
+    {
+        return view('how_to_choose'); 
+    }
 
     public function pillows()
     {

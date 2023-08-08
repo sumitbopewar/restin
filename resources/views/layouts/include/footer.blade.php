@@ -222,7 +222,7 @@ a:hover{
                         policy</a></li>
                 <li><a href=""><img class="footer_icons" src="{{ asset('layouts/img/terms-and-conditions.png') }}"
                             alt="">Terms & conditions</a></li>
-                <li><a href=""><img class="footer_icons" src="{{ asset('layouts/img/Warranty.png') }}"
+                <li><a href="{{route('warranty')}}"><img class="footer_icons" src="{{ asset('layouts/img/Warranty.png') }}"
                             alt="">Warranty</a></li>
             </ul>
         </div>

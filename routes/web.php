@@ -38,6 +38,10 @@ Route::get('/', [HomeController::class, 'index'])->name('/');
 
 Route::get('royal', [HomeController::class, 'royal'])->name('royal');
 
+Route::get('warranty', [HomeController::class, 'warranty'])->name('warranty');
+
+Route::get('how_to_choose', [HomeController::class, 'how_to_choose'])->name('how_to_choose');
+
 Route::get('homemattress', [HomeController::class, 'homemattress'])->name('homemattress');
 
 Route::get('hospital', [HomeController::class, 'hospital'])->name('hospital');
@@ -64,6 +68,8 @@ Route::get('get_view_product', [HomeController::class, 'get_view_product'])->nam
 Route::get('get_unit', [ViewProductController::class, 'get_unit']);
 
 Route::get('get_master_size', [ViewProductController::class, 'get_master_size']);
+
+Route::get('get_size_id', [ViewProductController::class, 'get_size_id']);
 
 
 

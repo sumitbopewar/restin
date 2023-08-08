@@ -88,10 +88,9 @@
                         </div>
 
                         <div class="inpt">
-                            <label for="exampleFormControlInput3" class="form-label">Thickness</label>
-                            <select class="form-select " aria-label="Default select example" id="exampleFormControlInput3">
+                            <label for="thickness_id" class="form-label">Thickness</label>
+                            <select class="form-select " aria-label="Default select example" id="thickness_id">
                                 <option value="">Select Thickness</option>
-                                <option value="{{ $thickness['id'] }}">{{ $thickness['thickness'] }}</option>
 
                             </select>
                         </div>
@@ -129,7 +128,7 @@
 
             $('.master_size').click(function() {
                 mid = $(this).val();
-                console.log(mid);
+                // console.log(mid);
 
                 $.ajax({
                     url: '/get_unit',
@@ -156,7 +155,7 @@
 
             $('.unit_id').change(function() {
                 let uid = $(this).val();
-                console.log(uid);
+                // console.log(uid);
 
                 $.ajax({
                     url: '/get_master_size',
@@ -166,16 +165,52 @@
                         'mid': mid,
                     },
                     success: function(result) {
-                        $('.product_size').empty();
+                        var size_mm = result.size_mm;
+                        var size_inch = result.size_inch;
 
-                        $.each(result, function(key, value) {
-                            $('.product_size').append(
-                                '<option value="">Select Size</option><option value="' +
-                                value.id +
+                        var productSizeSelect = $('.product_size');
+
+                        productSizeSelect.empty();
+
+                        productSizeSelect.append('<option value="">Select Size</option>');
+
+                        $.each(size_mm, function(key, value) {
+                            productSizeSelect.append('<option value="' + value.id +
                                 '">' + value.mm_length + ' * ' + value.mm_breath +
                                 '</option>');
                         });
+                        $.each(size_inch, function(key, value) {
+                            productSizeSelect.append('<option value="' + value.id +
+                                '">' + value.inch_length + ' * ' + value
+                                .inch_breath + '</option>');
+                        });
                     },
+
+
+                });
+            });
+
+            $('.product_size').change(function() {
+                let size_id = $(this).val();
+                // console.log(size_id);
+
+                $.ajax({
+                    url: '/get_size_id',
+                    type: 'GET',
+                    data: {
+                        'size_id': size_id,
+                    },
+                    success: function(result) {
+                        console.log(result);
+
+                        $.each(result, function(key, value) {
+                            var thick_id = value.thickness_id;
+                            console.log(thick_id);
+                        });
+                    },
+
+
+
 
                 });
             });

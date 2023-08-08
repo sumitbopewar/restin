@@ -33,10 +33,35 @@ class ViewProductController extends Controller
             ['unit_id', '=', $request->input('uid')],
         ])->get();
 
+        $size_inch = SizeInch::where([
+            ['master_size_id', '=', $request->input('mid')],
+            ['unit_id', '=', $request->input('uid')],
+        ])->get();
+
             // dd($size_mm);
             // die();
+            $result = [
+                'size_mm' => $size_mm,
+                'size_inch' => $size_inch,
+            ];
 
-        return response()->json($size_mm);
+        return response()->json($result);
+            
+    }
+
+    public function get_size_id(Request $request)
+    {
+        $thickness = HomeMattress::where(function ($query) use ($request) {
+            $size_id = $request->input('size_id');
+            $query->where('size_mm', $size_id)
+                  ->orWhere('size_inch', $size_id);
+        })->first();
+        
+            // dd($thickness);
+            // die();
+            
+
+        return response()->json($thickness);
             
     }
 }
