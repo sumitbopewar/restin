@@ -201,19 +201,29 @@
                     type: 'GET',
                     data: {
                         'size_id': size_id,
+                        '_': Date.now() // Add a timestamp as a query parameter
                     },
                     success: function(result) {
-                        var thickness = result['thickness'];
-                        var thickness_id = result['thickness_id'];
-                        // console.log(thickness_id);
+                        console.log(result);
+
                         var select = $('#thickness_id');
                         select.empty();
 
-                        select.append('<option value="">Select Thickness</option>');
-                        select.append('<option data-pro-id="' + thickness_id.id + '" value="' +
-                            thickness.id + '">' + thickness.thickness +
-                            '</option>');
+                        if (result && result.hasOwnProperty('thickness_id') && result
+                            .hasOwnProperty('thickness')) {
+                            var thickness_id = result['thickness_id'];
+                            var thickness = result['thickness'];
+
+                            select.append('<option value="">Select Thickness</option>');
+                            select.append('<option data-pro-id="' + thickness_id.id +
+                                '" value="' +
+                                thickness.id + '">' + thickness.thickness +
+                                '</option>');
+                        } else {
+                            select.append('<option value="">Select Thickness</option>');
+                        }
                     },
+ 
                 });
 
             });
@@ -245,14 +255,19 @@
                                 $('#price').empty();
                                 $('#price').append(firstObject.price);
                             } else {
+                                $('#price').empty();
+                                $('#price').append('');
                                 console.log(
                                     'Price is not valid or not present in the result object.'
-                                    );
+                                );
                             }
                         } else {
+                            $('#price').empty();
+                            $('#price').append('');
                             console.log('Result array is empty.');
                         }
                     },
+
 
                 });
 
