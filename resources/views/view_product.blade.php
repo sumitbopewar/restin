@@ -48,7 +48,8 @@
             <div class="_content">
                 <h2 class="product-title">{{ $home_mattress->product }}</h2>
                 {{-- product price --}}
-                <h3 class="text-black-50 fw-bold"> </h3>
+
+                <h3 class="text-black-50 fw-bold price" id="price"> </h3>
 
                 {{-- about this item  --}}
                 <h5 class="">About this item: </h5>
@@ -125,6 +126,7 @@
     <script>
         $(document).ready(function() {
             let mid;
+            let thick_id;
 
             $('.master_size').click(function() {
                 mid = $(this).val();
@@ -201,19 +203,61 @@
                         'size_id': size_id,
                     },
                     success: function(result) {
+                        var thickness = result['thickness'];
+                        var thickness_id = result['thickness_id'];
+                        // console.log(thickness_id);
+                        var select = $('#thickness_id');
+                        select.empty();
+
+                        select.append('<option value="">Select Thickness</option>');
+                        select.append('<option data-pro-id="' + thickness_id.id + '" value="' +
+                            thickness.id + '">' + thickness.thickness +
+                            '</option>');
+                    },
+                });
+
+            });
+
+            $('#thickness_id').change(function() {
+                let pro_size_id = $('.product_size').val();
+                let pro_id = $('#thickness_id option:selected').data('pro-id');
+                let thick_id = $('#thickness_id').val();
+                // console.log(pro_size_id);
+                // console.log(thick_id);
+
+                $.ajax({
+                    url: '/get_price',
+                    type: 'GET',
+                    data: {
+                        'thick_id': thick_id,
+                        'mid': mid,
+                        'pro_size_id': pro_size_id,
+                        'pro_id': pro_id,
+                    },
+                    success: function(result) {
                         console.log(result);
 
-                        $.each(result, function(key, value) {
-                            var thick_id = value.thickness_id;
-                            console.log(thick_id);
-                        });
+                        if (result.length > 0) {
+                            var firstObject = result[0];
+
+                            if (firstObject.hasOwnProperty('price') && firstObject.price !==
+                                null) {
+                                $('#price').empty();
+                                $('#price').append(firstObject.price);
+                            } else {
+                                console.log(
+                                    'Price is not valid or not present in the result object.'
+                                    );
+                            }
+                        } else {
+                            console.log('Result array is empty.');
+                        }
                     },
 
-
-
-
                 });
+
             });
+
         });
 
 

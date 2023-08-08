@@ -71,6 +71,10 @@ Route::get('get_master_size', [ViewProductController::class, 'get_master_size'])
 
 Route::get('get_size_id', [ViewProductController::class, 'get_size_id']);
 
+Route::get('get_thick_id', [ViewProductController::class, 'get_thick_id']);
+
+Route::get('get_price', [ViewProductController::class, 'get_price']);
+
 
 
 

@@ -51,17 +51,66 @@ class ViewProductController extends Controller
 
     public function get_size_id(Request $request)
     {
-        $thickness = HomeMattress::where(function ($query) use ($request) {
+        $thickness_id = HomeMattress::where(function ($query) use ($request) {
             $size_id = $request->input('size_id');
             $query->where('size_mm', $size_id)
                   ->orWhere('size_inch', $size_id);
         })->first();
+
+        $thickness = Thickness::where('id',$thickness_id->thickness_id)->first();
         
             // dd($thickness);
             // die();
+            $result = [
+                'thickness' => $thickness,
+                'thickness_id' => $thickness_id,
+            ];
+
+
+        return response()->json($result);
+            
+    }
+
+    public function get_thick_id(Request $request)
+    {
+        $thickness_id = HomeMattress::where('thickness_id',$request->thick_id)->first();
+
+        
+            // dd($thickness_id);
+            // die();
             
 
-        return response()->json($thickness);
+        return response()->json($thickness_id);
+            
+    }
+
+    public function get_price(Request $request)
+    {
+        // dd($request);
+        // die();
+
+
+        $price = HomeMattress::where([
+            ['master_size_id', '=', $request->input('mid')],
+            ['thickness_id', '=', $request->input('thick_id')],
+            ['id', '=', $request->input('pro_id')],
+            ['size_mm', '=', $request->input('pro_size_id')],
+        ])
+        ->orWhere([
+            ['master_size_id', '=', $request->input('mid')],
+            ['thickness_id', '=', $request->input('thick_id')],
+            ['id', '=', $request->input('pro_id')],
+            ['size_inch', '=', $request->input('pro_size_id')],
+        ])
+        ->get();
+        
+
+        
+            // dd($price);
+            // die();
+            
+
+        return response()->json($price);
             
     }
 }
