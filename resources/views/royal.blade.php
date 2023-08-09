@@ -39,7 +39,7 @@
 </style>
 
 <!--<h1>Royal Mattress</h1>-->
-<div class=" text-center home_mattress_head d-grid justify-content-center">
+<div class=" text-center home_mattress_head justify-content-center">
     <img src="{{ asset('layouts/img/RR Logo.png') }}" alt="" style="width: 200px; object-fit: contain;">
     <h2 class="royal_head">Royal Mattress</h2>
 </div>
