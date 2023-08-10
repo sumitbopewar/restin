@@ -74,10 +74,10 @@
 </div>
 
 <section class="mx-3">
-    <div class="row d-flex justify-content-center align-items-center cart-container">
+    <div class="row mt-5 d-flex justify-content-between align-items-center cart-container">
 
         @foreach ($royal as $item)
-        <div class="_card col-lg-3 col-md-6">
+        <div class="_card col-lg-3 col-md-6" style="width: 280px;">
             <div class="royal_cart-img card-img">
                 <a href="#"> <img src="{{ asset('layouts/img/'.$item->image) }}" class="product_img" alt="" srcset="">
                 </a>
@@ -87,7 +87,7 @@
             </div>
             <div class="_card-footer">
                 <span class="text-title _product_price"></span>
-                <div class="royal_card-button _card-button">
+                <div class="p-0 royal_card-button _card-button">
                     <a href="#"><i class="bi bi-cart3 cart_logo"></i></a>
                 </div>
             </div>
