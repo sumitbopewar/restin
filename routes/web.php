@@ -34,6 +34,44 @@ Route::get('/clear-cache', function() {
 
 
 
+Route::get('/admin/login', [AdminController::class, 'index'])->name('admin.login');
+
+Route::group(['middleware' => 'admin.auth'], function(){
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+ 
+});
+
+
+
+
+Route::get('add_user', [AdminController::class, 'index'])->middleware(['auth'])->name('add_user');
+
+Route::get('user_list', [AdminController::class, 'show'])->middleware(['auth'])->name('user_list');
+
+Route::post('admin_register', [AdminController::class, 'admin_register'])->name('admin_register');
+
+Route::get('user/delete/{id}', [AdminController::class, 'destroy']);
+
+
+
+// Route::get('login', [LoginController::class, 'index'])->name('login');
+
+// Route::post('login', [AdminController::class, 'login']);
+
+Route::get('logout', [AdminController::class, 'logout']);
+
+
+// user login 
+
+// Route::get('/login', [LoginController::class, 'index'])->name('login');
+
+// Route::post('login', [UserController::class, 'login']);
+
+
+
+
+
 Route::get('/', [HomeController::class, 'index'])->name('/');
 
 Route::get('royal', [HomeController::class, 'royal'])->name('royal');
@@ -75,44 +113,6 @@ Route::get('get_thick_id', [ViewProductController::class, 'get_thick_id']);
 
 Route::get('get_price', [ViewProductController::class, 'get_price']);
 
-
-
-
-
-
-
-
-
-
-
-
-Route::get('/admin/login', [AdminController::class, 'index'])->name('admin.login');
-
-Route::group(['middleware' => 'admin.auth'], function(){
-
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
- 
-});
-
-
-
-
-Route::get('add_user', [AdminController::class, 'index'])->middleware(['auth'])->name('add_user');
-
-Route::get('user_list', [AdminController::class, 'show'])->middleware(['auth'])->name('user_list');
-
-Route::post('admin_register', [AdminController::class, 'admin_register'])->name('admin_register');
-
-Route::get('user/delete/{id}', [AdminController::class, 'destroy']);
-
-
-
-// Route::get('login', [LoginController::class, 'index'])->name('login');
-
-Route::post('login', [AdminController::class, 'login']);
-
-Route::get('logout', [AdminController::class, 'logout']);
-//  login 
 
 
 // master size 

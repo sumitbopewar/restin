@@ -14,8 +14,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $permissions = Permission::all();
-        return view('admin.add_user', compact('permissions'));
+        return view('auth.login');
     }
 
     public function register(Request $request)
@@ -33,8 +32,8 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
             $user->save();
 
-            $user->assignRole('user');
-            $user->givePermissionTo($request->role_access);
+            // $user->assignRole('user');
+            // $user->givePermissionTo($request->role_access);
 
 
             return redirect()->back()->with('success', 'User registered successfully.');
