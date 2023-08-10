@@ -40,7 +40,7 @@
 
 
 <div class="container warranty_container">
-<h2 class="text-center _warranty">WARRANTY CARD</h2>
+<h2 class="text-center _warranty" style="font-weight: bold;">WARRANTY CARD</h2>
 <p class="m_point">Dear Customer,</p>
 <p>Thank you for choosing a Restin Mattress!</p>
 <p>Please follow the instructions to get the best out of your mattress</p>

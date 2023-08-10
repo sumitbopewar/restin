@@ -90,19 +90,19 @@ const carousel = new bootstrap.Carousel(carouselElement, {
     <div class="container text-center " style="padding: 0px;">
         <div class="row">
             <div class="col-md-3 col-sm-2 col-xs-12">
-                <img class="icon-img img-fluid" src="{{ asset('layouts/img/icon-4.png') }}" alt="">
-                <h5 class="icon-title">Comfort</h5>
+                <img class="icon-img img-fluid p-0" src="{{ asset('layouts/img/icon-4.png') }}" alt="">
+                <h5 class="icon-title ">Comfort</h5>
             </div>
             <div class="col-md-3 col-sm-2 col-xs-12">
-                <img class="icon-img img-fluid" src="{{ asset('layouts/img/icon-1.png') }}" alt="">
+                <img class="icon-img img-fluid p-0" src="{{ asset('layouts/img/icon-1.png') }}" alt="">
                 <h5 class="icon-title">Ergonomic</h5>
             </div>
             <div class="col-md-3 col-sm-2 col-xs-12">
-                <img class="icon-img img-fluid" src="{{ asset('layouts/img/icon-2.png') }}" alt="">
+                <img class="icon-img img-fluid p-0" src="{{ asset('layouts/img/icon-2.png') }}" alt="">
                 <h5 class="icon-title">Durable</h5>
             </div>
             <div class="col-md-3 col-sm-2 col-xs-12">
-                <img class="icon-img img-fluid" src="{{ asset('layouts/img/icon-3.png') }}" alt="">
+                <img class="icon-img img-fluid p-0" src="{{ asset('layouts/img/icon-3.png') }}" alt="">
                 <h5 class="icon-title">Hygenic</h5>
             </div>
 
