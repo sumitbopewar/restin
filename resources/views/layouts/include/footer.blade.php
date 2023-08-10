@@ -25,7 +25,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     margin: 2rem;
-    text-align: right;
+    text-align: left;
 }
 
 .footer-links h4 {
@@ -186,7 +186,7 @@ a:hover {
     }
 }
 
-.non-icon li{
+.non-icon li {
     margin-bottom: 0.8rem;
 }
 </style>
@@ -208,7 +208,7 @@ a:hover {
     </ul>
 
     <style>
-        
+
     </style>
 
     <div class="information-block">
@@ -251,11 +251,11 @@ a:hover {
         </div>
 
         <style>
-            .social_icon {
-                font-size: 1.5rem;
-            }
+        .social_icon {
+            font-size: 1.5rem;
+        }
         </style>
-
+        <!-- 
         <div class="social-media footer-links">
             <h4>Social media</h4>
             <ul class="non-icon">
@@ -263,13 +263,16 @@ a:hover {
                 <li><i class="fa-brands fa-square-instagram social_icon"></i> Instagram</li>
                 <li><i class="fa-brands fa-square-twitter social_icon"></i> Twitter</li>
             </ul>
-        </div>
+        </div> -->
     </div>
 
-    <!-- <div class="copywrite">
-        <h3>Restin</h3>
-        <p>Copyright © 2023 All rights reserved</p>
-    </div> -->
+    <div class="copywrite ">
+        <h4>Restin Industries</h4>
+        <p><i class="fa-solid fa-location-dot"></i> N 101/7, MIDC, Hingna Road, Nagpur-440016
+        <br>  <span style="margin-left: 1rem;">Maharashtra, India</span></p>
+        <p><i class="fa-solid fa-phone"></i> +91 77559 18227</p>
+        <p><i class="fa-solid fa-envelope"></i> customer@restin.in</p>
+    </div>
 
 
 
