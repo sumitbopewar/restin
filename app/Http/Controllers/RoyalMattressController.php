@@ -52,6 +52,7 @@ class RoyalMattressController extends Controller
         $collection_img = $request->file('collection_img');
         $img2 = $request->file('img2');
         $img3 = $request->file('img3');
+        $img4 = $request->file('img4');
 
             // Validate the uploaded image
             if ($image) {
@@ -105,6 +106,19 @@ class RoyalMattressController extends Controller
                 $imageName = $img3->getClientOriginalName();
                 $imagePath = $img3->storeAs('public/images', $imageName);
                 $royalmat->img3 = $imageName;
+            }
+            if ($img4) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                // Check if the file extension is allowed
+                $extension = strtolower($img4->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $img4->getClientOriginalName();
+                $imagePath = $img4->storeAs('public/images', $imageName);
+                $royalmat->img4 = $imageName;
             }
         
         $royalmat->save();
@@ -155,6 +169,7 @@ class RoyalMattressController extends Controller
         $collection_img = $request->file('collection_img');
         $img2 = $request->file('img2');
         $img3 = $request->file('img3');
+        $img4 = $request->file('img4');
 
             // Validate the uploaded image
             if ($image) {
@@ -208,6 +223,19 @@ class RoyalMattressController extends Controller
                 $imageName = $img3->getClientOriginalName();
                 $imagePath = $img3->storeAs('public/images', $imageName);
                 $royalmat->img3 = $imageName;
+            }
+            if ($img4) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                // Check if the file extension is allowed
+                $extension = strtolower($img4->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $img4->getClientOriginalName();
+                $imagePath = $img4->storeAs('public/images', $imageName);
+                $royalmat->img4 = $imageName;
             }
         
         $royalmat->update();

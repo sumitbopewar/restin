@@ -2,9 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ViewProductController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MasterSizeController;
 use App\Http\Controllers\SizeMMController;
@@ -13,8 +12,6 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\ThicknessController;
 use App\Http\Controllers\HomeMattressController;
 use App\Http\Controllers\RoyalMattressController;
-use App\Http\Controllers\HospitalMattressController;
-use App\Http\Controllers\HotelMattressController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,84 +33,29 @@ Route::get('/clear-cache', function() {
 
 Route::get('/', [HomeController::class, 'index'])->name('/');
 
-Route::get('royal', [HomeController::class, 'royal'])->name('royal');
 
-Route::get('warranty', [HomeController::class, 'warranty'])->name('warranty');
+// admin dashboard 
 
-Route::get('how_to_choose', [HomeController::class, 'how_to_choose'])->name('how_to_choose');
+Route::get('dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
-Route::get('homemattress', [HomeController::class, 'homemattress'])->name('homemattress');
+// login 
 
-Route::get('hospital', [HomeController::class, 'hospital'])->name('hospital');
+Route::get('login', [LoginController::class, 'index'])->name('login');
 
-Route::get('hotel', [HomeController::class, 'hotel'])->name('hotel');
+Route::post('login', [LoginController::class, 'login']);
 
-Route::get('contact', [HomeController::class, 'contact'])->name('contact');
-
-Route::get('cart', [HomeController::class, 'cart'])->name('cart');
-
-Route::get('guide_to_good_sleep', [HomeController::class, 'guide'])->name('guide_to_good_sleep');
-
-Route::get('get_product_detail', [HomeController::class, 'get_product_detail']);
-
-Route::get('pillows', [HomeController::class, 'pillows'])->name('pillows');
-
-Route::get('protector', [HomeController::class, 'protector'])->name('protector');
-
-Route::get('topper', [HomeController::class, 'topper'])->name('topper');
-
-Route::get('get_view_product', [HomeController::class, 'get_view_product'])->name('view_product');
-
-
-Route::get('get_unit', [ViewProductController::class, 'get_unit']);
-
-Route::get('get_master_size', [ViewProductController::class, 'get_master_size']);
-
-Route::get('get_size_id', [ViewProductController::class, 'get_size_id']);
-
-Route::get('get_thick_id', [ViewProductController::class, 'get_thick_id']);
-
-Route::get('get_price', [ViewProductController::class, 'get_price']);
-
-
-
-
-
-
-
-
-
-
-
-
-Route::get('/admin/login', [AdminController::class, 'index'])->name('admin.login');
-
-Route::group(['middleware' => 'admin.auth'], function(){
-
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
- 
-});
-
-
-
-
-Route::get('add_user', [AdminController::class, 'index'])->middleware(['auth'])->name('add_user');
-
-Route::get('user_list', [AdminController::class, 'show'])->middleware(['auth'])->name('user_list');
-
-Route::post('admin_register', [AdminController::class, 'admin_register'])->name('admin_register');
-
-Route::get('user/delete/{id}', [AdminController::class, 'destroy']);
-
-
-
-// Route::get('login', [LoginController::class, 'index'])->name('login');
-
-Route::post('login', [AdminController::class, 'login']);
-
-Route::get('logout', [AdminController::class, 'logout']);
+Route::get('logout', [LoginController::class, 'logout']);
 //  login 
 
+// user 
+Route::get('add_user', [UserController::class, 'index'])->middleware(['auth'])->name('add_user');
+
+Route::post('register', [UserController::class, 'register'])->name('register');
+
+Route::get('user_list', [UserController::class, 'show'])->middleware(['auth'])->name('user_list');
+
+Route::get('user/delete/{id}', [UserController::class, 'delete']);
+// user 
 
 // master size 
 Route::get('master_size', [MasterSizeController::class, 'index'])->middleware(['auth'])->name('master_size');
@@ -169,31 +111,6 @@ Route::get('home_mattress/edit/{id}', [HomeMattressController::class, 'edit']);
 Route::post('home_mattress/update/{id}', [HomeMattressController::class, 'update']);
 
 Route::get('home_mattress/delete/{id}', [HomeMattressController::class, 'destroy']);
-
-
-// hospital mattresss 
-Route::get('hospital_mattress', [HospitalMattressController::class, 'index'])->middleware(['auth'])->name('hospital_mattress');
-
-Route::post('insertHospitalMattress', [HospitalMattressController::class, 'store']);
-
-Route::get('hospital_mattress/edit/{id}', [HospitalMattressController::class, 'edit']);
-
-Route::post('hospital_mattress/update/{id}', [HospitalMattressController::class, 'update']);
-
-Route::get('hospital_mattress/delete/{id}', [HospitalMattressController::class, 'destroy']);
-
-
-// hotel mattresss 
-Route::get('hotel_mattress', [HotelMattressController::class, 'index'])->middleware(['auth'])->name('hotel_mattress');
-
-Route::post('insertHotelMattress', [HotelMattressController::class, 'store']);
- 
-Route::get('hotel_mattress/edit/{id}', [HotelMattressController::class, 'edit']);
-
-Route::post('hotel_mattress/update/{id}', [HotelMattressController::class, 'update']);
-
-Route::get('hotel_mattress/delete/{id}', [HotelMattressController::class, 'destroy']);
-
 
 // royal_mattresss 
 Route::get('royal_mattress', [RoyalMattressController::class, 'index'])->middleware(['auth'])->name('royal_mattress');

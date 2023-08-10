@@ -31,12 +31,13 @@
         transform: translate(-75%, -35%);
         max-width: 1320px;
     }
-    .buynow{
-            margin-top: 0.5rem !important;
-            padding-right: 0.5rem !important;
-            padding-left: 0.5rem !important;        
-            font-size: 1rem;    
-        }
+
+    .buynow {
+        margin-top: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        padding-left: 0.5rem !important;
+        font-size: 1rem;
+    }
 }
 </style>
 
@@ -56,7 +57,8 @@
                     style="margin-top: -60px;">
                 <div class="carousel-caption col-md-6 col-10 col-offset-md-6">
                     <h1>The Mattress that<br>refreshes you</h1>
-                    <a href="cart.php"><button class="btn btn-lg btn-primary rounded-0 px-5 mt-5 buynow">BUY NOW</button></a>
+                    <a href="cart.php"><button class="btn btn-lg btn-primary rounded-0 px-5 mt-5 buynow">BUY
+                            NOW</button></a>
                 </div>
             </div>
 
@@ -65,7 +67,8 @@
                     style="margin-top: -60px;">
                 <div class="carousel-caption carousel-caption col-md-6 col-10 col-offset-md-6">
                     <h1>The Sleep Is the<br>Best Meditation</h1>
-                    <a href="cart.php"><button class="btn btn-lg btn-primary rounded-0 px-5 mt-5 buynow">BUY NOW</button></a>
+                    <a href="cart.php"><button class="btn btn-lg btn-primary rounded-0 px-5 mt-5 buynow">BUY
+                            NOW</button></a>
                 </div>
             </div>
         </div>
@@ -86,30 +89,78 @@ const carousel = new bootstrap.Carousel(carouselElement, {
 
 
 <!-- Icons Section -->
-<section>
+<!-- <section>
     <div class="container text-center " style="padding: 0px;">
         <div class="row">
-            <div class="col-md-3 col-sm-2 col-xs-12">
+            <div class="col-md-6 col-sm-6">
                 <img class="icon-img img-fluid p-0" src="{{ asset('layouts/img/icon-4.png') }}" alt="">
                 <h5 class="icon-title ">Comfort</h5>
             </div>
-            <div class="col-md-3 col-sm-2 col-xs-12">
+            <div class="col-md-6 col-sm-6">
                 <img class="icon-img img-fluid p-0" src="{{ asset('layouts/img/icon-1.png') }}" alt="">
                 <h5 class="icon-title">Ergonomic</h5>
             </div>
-            <div class="col-md-3 col-sm-2 col-xs-12">
+            <div class="col-md-6 col-sm-6">
                 <img class="icon-img img-fluid p-0" src="{{ asset('layouts/img/icon-2.png') }}" alt="">
                 <h5 class="icon-title">Durable</h5>
             </div>
-            <div class="col-md-3 col-sm-2 col-xs-12">
+            <div class="col-md-6 col-sm-6">
                 <img class="icon-img img-fluid p-0" src="{{ asset('layouts/img/icon-3.png') }}" alt="">
                 <h5 class="icon-title">Hygenic</h5>
             </div>
 
         </div>
     </div>
-</section>
+</section> -->
 
+<style>
+.icon_section {
+    margin: auto;
+}
+
+@media screen and (max-width: 590px) {
+    .row>* {
+        flex-shrink: 0;
+        width: 50%;
+        max-width: 100%;
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+        margin-top: var(--bs-gutter-y);
+    }
+
+    .icon-title {
+        font-weight: 700;
+        margin-bottom: 32px;
+    }
+
+    .icon-img {
+        margin-top: 33px;
+        width: 130px;
+    }
+}
+</style>
+
+<!-- Icon section -->
+<section>
+    <div class="container text-center icon_section row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <img class="icon-img img-fluid p-0" src="{{ asset('layouts/img/icon-4.png') }}" alt="">
+            <h5 class="icon-title ">Comfort</h5>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <img class="icon-img img-fluid p-0" src="{{ asset('layouts/img/icon-1.png') }}" alt="">
+            <h5 class="icon-title">Ergonomic</h5>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <img class="icon-img img-fluid p-0" src="{{ asset('layouts/img/icon-2.png') }}" alt="">
+            <h5 class="icon-title">Durable</h5>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <img class="icon-img img-fluid p-0" src="{{ asset('layouts/img/icon-3.png') }}" alt="">
+            <h5 class="icon-title">Hygenic</h5>
+        </div>
+    </div>
+</section>
 
 <!-- Card Section starts -->
 

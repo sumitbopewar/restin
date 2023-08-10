@@ -22,7 +22,8 @@
                         <h6>Add Hospital Mattress</h6>
                     </div>
                     <div class="card-body px-0 pt-0 py-2">
-                        <form class="px-5" action="{{ url('hospital_mattress/update/' . $hospital_mat->id) }}" method="POST" enctype="multipart/form-data">
+                        <form class="px-5" action="{{ url('hospital_mattress/update/' . $hospital_mat->id) }}"
+                            method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="d-flex">
                                 <div class="mb-3 mx-3 w-50">
@@ -31,14 +32,16 @@
                                         aria-label="Default select example">
                                         <option value="Activa"{{ $hospital_mat->collection == 'Activa' ? 'selected' : '' }}>
                                             Activa</option>
-                                        <option value="Comfort"{{ $hospital_mat->collection == 'Comfort' ? 'selected' : '' }}>
+                                        <option
+                                            value="Comfort"{{ $hospital_mat->collection == 'Comfort' ? 'selected' : '' }}>
                                             Comfort</option>
                                         <option
                                             value="OrthoSpine"{{ $hospital_mat->collection == 'OrthoSpine' ? 'selected' : '' }}>
                                             OrthoSpine</option>
                                         <option value="Hybrid"{{ $hospital_mat->collection == 'Hybrid' ? 'selected' : '' }}>
                                             Hybrid</option>
-                                        <option value="Wellness"{{ $hospital_mat->collection == 'Wellness' ? 'selected' : '' }}>
+                                        <option
+                                            value="Wellness"{{ $hospital_mat->collection == 'Wellness' ? 'selected' : '' }}>
                                             Wellness</option>
                                         <option
                                             value="Visco Memory"{{ $hospital_mat->collection == 'Visco Memory' ? 'selected' : '' }}>
@@ -46,6 +49,17 @@
                                         <option value="Spring"{{ $hospital_mat->collection == 'Spring' ? 'selected' : '' }}>
                                             Spring</option>
                                     </select>
+
+                                </div>
+
+                                <div class="mb-3 mx-3 w-50">
+                                    <label for="collection_img" class="form-label">Collection image</label>
+                                    <input type="file" class="form-control py-2"
+                                        value="{{ $hospital_mat->collection_img }}" name="collection_img"
+                                        id="collection_img">
+                                    <img src="{{ asset('storage/images/' . $hospital_mat->collection_img) }}"
+                                        alt="product not found" style="width:50px!important;height:50px!important;"
+                                        class="rounded-0">
 
                                 </div>
 
@@ -88,11 +102,11 @@
                                     <select class="form-select" id="size_inch" name="size_inch"
                                         aria-label="Default select example" required>
                                         @foreach ($sizeinch as $item)
-                                        <option value="{{ $item['id'] }}"
-                                            {{ $hospital_mat['size_inch'] == $item['id'] ? 'selected' : '' }}>
-                                            {{ $item['inch_length'] }} * {{ $item['inch_breath'] }}
-                                        </option>
-                                    @endforeach
+                                            <option value="{{ $item['id'] }}"
+                                                {{ $hospital_mat['size_inch'] == $item['id'] ? 'selected' : '' }}>
+                                                {{ $item['inch_length'] }} * {{ $item['inch_breath'] }}
+                                            </option>
+                                        @endforeach
                                     </select>
 
                                 </div>
@@ -101,13 +115,13 @@
                                     <label for="thickness_id" class="form-label">Thickness</label>
                                     <select class="form-select" id="thickness_id" name="thickness_id"
                                         aria-label="Default select example" required>
-                                        
+
                                         @foreach ($thickness as $item)
-                                        <option value="{{ $item['id'] }}"
-                                            {{ $hospital_mat['thickness_id'] == $item['id'] ? 'selected' : '' }}>
-                                            {{ $item['thickness'] }} 
-                                        </option>
-                                    @endforeach
+                                            <option value="{{ $item['id'] }}"
+                                                {{ $hospital_mat['thickness_id'] == $item['id'] ? 'selected' : '' }}>
+                                                {{ $item['thickness'] }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -116,12 +130,14 @@
 
                                 <div class="mb-3 mx-3 w-50">
                                     <label for="product" class="form-label">Product Name</label>
-                                    <input type="text" class="form-control" value="{{$hospital_mat->product}}" name="product" id="product" required>
+                                    <input type="text" class="form-control" value="{{ $hospital_mat->product }}"
+                                        name="product" id="product" required>
                                 </div>
 
                                 <div class="mb-3 mx-3 w-50">
                                     <label for="price" class="form-label">Product Price</label>
-                                    <input type="text" class="form-control" value="{{$hospital_mat->price}}" name="price" id="price" required>
+                                    <input type="text" class="form-control" value="{{ $hospital_mat->price }}"
+                                        name="price" id="price" required>
                                 </div>
 
                             </div>
@@ -130,22 +146,67 @@
 
                                 <div class="mb-3 mx-3 w-50">
                                     <label for="image" class="form-label">Product image</label>
-                                    <input type="file" class="form-control py-2" value="{{$hospital_mat->image}}" name="image" id="image" >
-                                    <img src="{{ asset('storage/images/' . $hospital_mat->image) }}" alt="product not found" style="width:50px!important;height:50px!important;" class="rounded-0">
-                                           
+                                    <input type="file" class="form-control py-2" value="{{ $hospital_mat->image }}"
+                                        name="image" id="image">
+                                    <img src="{{ asset('storage/images/' . $hospital_mat->image) }}"
+                                        alt="product not found" style="width:50px!important;height:50px!important;"
+                                        class="rounded-0">
+
+                                </div>
+
+                                <div class="mb-3 mx-3 w-50">
+                                    <label for="img2" class="form-label">Product image 2</label>
+                                    <input type="file" class="form-control py-2" value="{{ $hospital_mat->img2 }}"
+                                        name="img2" id="img2">
+                                    <img src="{{ asset('storage/images/' . $hospital_mat->img2) }}"
+                                        alt="product not found" style="width:50px!important;height:50px!important;"
+                                        class="rounded-0">
+
+                                </div>
+
+                                <div class="mb-3 mx-3 w-50">
+                                    <label for="img3" class="form-label">Product image 3</label>
+                                    <input type="file" class="form-control py-2" value="{{ $hospital_mat->img3 }}"
+                                        name="img3" id="img3">
+                                    <img src="{{ asset('storage/images/' . $hospital_mat->img3) }}"
+                                        alt="product not found" style="width:50px!important;height:50px!important;"
+                                        class="rounded-0">
+
+                                </div>
+
+                            </div>
+                            <div class="d-flex">
+                                <div class="mb-3 mx-3 w-50">
+                                    <label for="img4" class="form-label">Product image 4</label>
+                                    <input type="file" class="form-control py-2" value="{{ $hospital_mat->img4 }}"
+                                        name="img4" id="img4">
+                                    <img src="{{ asset('storage/images/' . $hospital_mat->img4) }}"
+                                        alt="product not found" style="width:50px!important;height:50px!important;"
+                                        class="rounded-0">
+
                                 </div>
 
                                 <div class="mb-3 mx-3 w-50">
                                     <label for="status" class="form-label">Status</label>
                                     <select class="form-select" id="status" name="status"
                                         aria-label="Default select example">
-                                        <option value="Active"{{ $hospital_mat->status == 'Active' ? 'selected' : '' }}>Active</option>
-                                        <option value="Deactive"{{ $hospital_mat->status == 'Deactive' ? 'selected' : '' }}>Deactive</option>
+                                        <option value="Active"{{ $hospital_mat->status == 'Active' ? 'selected' : '' }}>
+                                            Active</option>
+                                        <option
+                                            value="Deactive"{{ $hospital_mat->status == 'Deactive' ? 'selected' : '' }}>
+                                            Deactive</option>
                                     </select>
 
                                 </div>
                             </div>
+                            <div class="d-flex">
+                                <div class="mb-3 mx-3 w-100">
+                                    <label for="about" class="form-label">About Product </label>
+                                    <textarea class="form-control " name="about" id="about" rows="4" cols="50" style="resize: auto"
+                                        required>{{ $hospital_mat->about }}</textarea>
 
+                                </div>
+                            </div>
                             <button type="submit" class="btn btn-primary">Update</button>
                         </form>
                     </div>

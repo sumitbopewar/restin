@@ -29,7 +29,7 @@
 </style>
 
 
-<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow p-0" style="background-color:#deeefa">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow p-0" style="background-color:#a5cbe7">
     <div class="container-fluid px-5 mx-5 header_nav">
         <a class="navbar-brand" href="#"><img src="{{ asset('/layouts/img/logo.png') }}" width="100px" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

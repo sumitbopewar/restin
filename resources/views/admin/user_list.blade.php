@@ -55,7 +55,7 @@
                                             <td class="align-middle text-center text-sm">{{ $item->email }}</td>
                                             <td style="white-space: normal">{{ $string }}</td>
                                             <td class="align-middle">
-                                                <a href="#"><span class="badge btn btn-behance">Update</span></a> 
+                                                {{-- <a href="#"><span class="badge btn btn-behance">Update</span></a>  --}}
                                                 <a href="{{ url('user/delete/' . $item->id) }}" onclick="return confirm('Are you sure you want to delete this user?')">
                                                     <span class="badge btn btn-danger">Delete</span>
                                                 </a>

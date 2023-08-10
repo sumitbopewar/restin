@@ -53,6 +53,7 @@ class HomeMattressController extends Controller
         $collection_img = $request->file('collection_img');
         $img2 = $request->file('img2');
         $img3 = $request->file('img3');
+        $image3 = $request->file('image3');
 
             // Validate the uploaded image
             if ($image) {
@@ -106,6 +107,19 @@ class HomeMattressController extends Controller
                 $imageName = $img3->getClientOriginalName();
                 $imagePath = $img3->storeAs('public/images', $imageName);
                 $homemat->img3 = $imageName;
+            }
+            if ($image3) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                // Check if the file extension is allowed
+                $extension = strtolower($image3->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $image3->getClientOriginalName();
+                $imagePath = $image3->storeAs('public/images', $imageName);
+                $homemat->image3 = $imageName;
             }
         
         $homemat->save();
@@ -156,6 +170,7 @@ class HomeMattressController extends Controller
         $collection_img = $request->file('collection_img');
         $img2 = $request->file('img2');
         $img3 = $request->file('img3');
+        $image3 = $request->file('image3');
 
 
             // Validate the uploaded image
@@ -210,6 +225,19 @@ class HomeMattressController extends Controller
                 $imageName = $img3->getClientOriginalName();
                 $imagePath = $img3->storeAs('public/images', $imageName);
                 $homemat->img3 = $imageName;
+            }
+            if ($image3) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                // Check if the file extension is allowed
+                $extension = strtolower($image3->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $image3->getClientOriginalName();
+                $imagePath = $image3->storeAs('public/images', $imageName);
+                $homemat->image3 = $imageName;
             }
         
         $homemat->update();

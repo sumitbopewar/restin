@@ -24,7 +24,7 @@
                     <h6>Add User</h6>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
-                    <form class="px-5" action="{{ route('register') }}" method="POST">
+                    <form class="px-5" action="{{ route('admin_register') }}" method="POST">
                         @csrf
                         <div class="d-flex">
                             <div class="mb-3 mx-3 w-50">
