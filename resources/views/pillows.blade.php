@@ -76,7 +76,7 @@
 <!--</section>-->
 <div class="container product_container fonds ">
     <h3 style="font-size:50px;">Pillow</h3>
-    <p calss="">
+    <p>
         The perfect mattress should always have the perfect pillows to accompany it ! <br> Your investment in your sleep has only been met halfway if you don’t have great pillows, too.
     </p>
 
@@ -94,21 +94,21 @@
         </div>
     </div>
     <div class="d-flex content_box ">
-    <div class="product_content">
-        <h3>MEMORY FOAM PILLOWS</h3>
-        <ul>
-            <li style="margin: 10px"><b>Prevents cricks in your neck-</b> The dense material of a memory foam pillow prevents your neck from bending in awkward directions. This is why they are great to use when traveling.</li>
-            <li style="margin: 10px"><b>Keeps your spine aligned-</b> As the memory foam pillow prevents your neck from bending, it allows your spine to remain aligned.</li>
-            <li style="margin: 10px"><b>Molds to the shape of your head –</b> Memory foam pillows contour to the shape of your head, just as a memory foam mattress contours itself to your body.</li>
-            <li style="margin: 10px">Memory foam pillows are available in a variety of shapes, which is convenient because the type of pillow needed will vary based upon your sleeping position.</li>
-            <li style="margin: 10px"><b>No adjusting-</b> Memory foam does not require flipping, fluffing, or any of the adjustments of a regular pillow, as it will retain its shape and size.</li>
-            <li style="margin: 10px"><b>Reduces snoring-</b> Regular pillows tilt your head upwards, causing air passages to close, However, memory foam pillows contour to your neck, allowing your air passages to remain open.</li>
-        </ul>
+        <div class="product_content">
+            <h3>MEMORY FOAM PILLOWS</h3>
+            <ul>
+                <li style="margin: 10px"><b>Prevents cricks in your neck-</b> The dense material of a memory foam pillow prevents your neck from bending in awkward directions. This is why they are great to use when traveling.</li>
+                <li style="margin: 10px"><b>Keeps your spine aligned-</b> As the memory foam pillow prevents your neck from bending, it allows your spine to remain aligned.</li>
+                <li style="margin: 10px"><b>Molds to the shape of your head –</b> Memory foam pillows contour to the shape of your head, just as a memory foam mattress contours itself to your body.</li>
+                <li style="margin: 10px">Memory foam pillows are available in a variety of shapes, which is convenient because the type of pillow needed will vary based upon your sleeping position.</li>
+                <li style="margin: 10px"><b>No adjusting-</b> Memory foam does not require flipping, fluffing, or any of the adjustments of a regular pillow, as it will retain its shape and size.</li>
+                <li style="margin: 10px"><b>Reduces snoring-</b> Regular pillows tilt your head upwards, causing air passages to close, However, memory foam pillows contour to your neck, allowing your air passages to remain open.</li>
+            </ul>
+        </div>
+        <div class="pillow_img">
+            <img src="{{asset('layouts/img/pillow.jpeg')}}" class="product_img" alt="Pillow img">
+        </div>
     </div>
-    <div class="pillow_img">
-        <img src="{{asset('layouts/img/pillow.jpeg')}}" class="product_img" alt="Pillow img">
-    </div>
-</div>
 </div>
 
 
