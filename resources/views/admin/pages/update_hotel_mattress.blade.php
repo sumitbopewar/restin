@@ -50,6 +50,18 @@
                                 </div>
 
                                 <div class="mb-3 mx-3 w-50">
+                                    <label for="collection_img" class="form-label">Collection image</label>
+                                    <input type="file" class="form-control py-2"
+                                        value="{{ $hotel_mat->collection_img }}" name="collection_img"
+                                        id="collection_img">
+                                    <img src="{{ asset('storage/images/' . $hotel_mat->collection_img) }}"
+                                        alt="product not found" style="width:50px!important;height:50px!important;"
+                                        class="rounded-0">
+
+                                </div>
+
+
+                                <div class="mb-3 mx-3 w-50">
                                     <label for="master_size_id" class="form-label">Master Size</label>
 
                                     <select class="form-select" id="master_size_id" name="master_size_id"
@@ -136,12 +148,53 @@
                                 </div>
 
                                 <div class="mb-3 mx-3 w-50">
+                                    <label for="img2" class="form-label">Product image 2</label>
+                                    <input type="file" class="form-control py-2" value="{{ $hotel_mat->img2 }}"
+                                        name="img2" id="img2">
+                                    <img src="{{ asset('storage/images/' . $hotel_mat->img2) }}"
+                                        alt="product not found" style="width:50px!important;height:50px!important;"
+                                        class="rounded-0">
+
+                                </div>
+
+                                <div class="mb-3 mx-3 w-50">
+                                    <label for="img3" class="form-label">Product image 3</label>
+                                    <input type="file" class="form-control py-2" value="{{ $hotel_mat->img3 }}"
+                                        name="img3" id="img3">
+                                    <img src="{{ asset('storage/images/' . $hotel_mat->img3) }}"
+                                        alt="product not found" style="width:50px!important;height:50px!important;"
+                                        class="rounded-0">
+
+                                </div>
+
+                            </div>
+                            <div class="d-flex">
+                                <div class="mb-3 mx-3 w-50">
+                                    <label for="img4" class="form-label">Product image 4</label>
+                                    <input type="file" class="form-control py-2" value="{{ $hotel_mat->img4 }}"
+                                        name="img4" id="img4">
+                                    <img src="{{ asset('storage/images/' . $hotel_mat->img4) }}"
+                                        alt="product not found" style="width:50px!important;height:50px!important;"
+                                        class="rounded-0">
+
+                                </div>
+
+                                <div class="mb-3 mx-3 w-50">
                                     <label for="status" class="form-label">Status</label>
                                     <select class="form-select" id="status" name="status"
                                         aria-label="Default select example">
                                         <option value="Active"{{ $hotel_mat->status == 'Active' ? 'selected' : '' }}>Active</option>
                                         <option value="Deactive"{{ $hotel_mat->status == 'Deactive' ? 'selected' : '' }}>Deactive</option>
                                     </select>
+
+                                </div>
+                            </div>
+
+                            <div class="d-flex">
+                                <div class="mb-3 mx-3 w-100">
+                                    <label for="about" class="form-label">About Product </label>
+                                    <textarea class="form-control " name="about" id="about" rows="4" cols="50" style="resize: auto"
+                                        required>{{ $hotel_mat->about }}</textarea>
 
                                 </div>
                             </div>

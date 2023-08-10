@@ -136,6 +136,15 @@
                                         required>
                                 </div>
 
+                            </div>
+
+                            <div class="d-flex">
+
+                                <div class="mb-3 mx-3 w-50">
+                                    <label for="img4" class="form-label">Product image4</label>
+                                    <input type="file" class="form-control py-2" name="img4" id="img4" required>
+                                </div>
+
                                 <div class="mb-3 mx-3 w-50">
                                     <label for="status" class="form-label">Status</label>
                                     <select class="form-select" id="status" name="status"
@@ -195,6 +204,7 @@
                                         <th class="text-uppercase">Image</th>
                                         <th class="text-uppercase">Image 2</th>
                                         <th class="text-uppercase">Image 3</th>
+                                        <th class="text-uppercase">Image 4</th>
                                         <th class="text-uppercase">About</th>
                                         <th class="text-uppercase">Status</th>
                                         <th class="opacity-7">Action</th>
@@ -247,6 +257,10 @@
                                             </td>
 
                                             <td><img src="{{ asset('storage/images/' . $item->img3) }}"
+                                                    alt="product not found"
+                                                    style="width:50px!important;height:50px!important;" class="rounded-0">
+                                            </td>
+                                            <td><img src="{{ asset('storage/images/' . $item->img4) }}"
                                                     alt="product not found"
                                                     style="width:50px!important;height:50px!important;" class="rounded-0">
                                             </td>

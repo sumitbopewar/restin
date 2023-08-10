@@ -135,6 +135,14 @@
                                     <input type="file" class="form-control py-2" name="img3" id="img3"
                                         required>
                                 </div>
+                            </div>
+
+                            <div class="d-flex">
+                                <div class="mb-3 mx-3 w-50">
+                                    <label for="image3" class="form-label">Product image 4</label>
+                                    <input type="file" class="form-control py-2" name="image3" id="image3"
+                                        >
+                                </div>
 
                                 <div class="mb-3 mx-3 w-50">
                                     <label for="status" class="form-label">Status</label>
@@ -195,6 +203,7 @@
                                         <th class="text-uppercase">Image</th>
                                         <th class="text-uppercase">Image 2</th>
                                         <th class="text-uppercase">Image 3</th>
+                                        <th class="text-uppercase">Image 4</th>
                                         <th class="text-uppercase">About</th>
                                         <th class="text-uppercase">Status</th>
                                         <th class="opacity-7">Action</th>
@@ -251,6 +260,11 @@
                                             </td>
 
                                             <td><img src="{{ asset('storage/images/' . $item->img3) }}"
+                                                    alt="product not found"
+                                                    style="width:50px!important;height:50px!important;" class="rounded-0">
+                                            </td>
+
+                                            <td><img src="{{ asset('storage/images/' . $item->image3) }}"
                                                     alt="product not found"
                                                     style="width:50px!important;height:50px!important;" class="rounded-0">
                                             </td>

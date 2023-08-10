@@ -1,4 +1,4 @@
-<nav class="sidebar sidebar-offcanvas dynamic-active-class-disabled" id="sidebar">
+<nav class="sidebar sidebar-offcanvas dynamic-active-class-disabled" id="sidebar" style="overflow:hidden;overflow-y: scroll;height:100;">
     <ul class="nav">
       
       <li class="nav-item {{ request()->is('dashboard') ? 'active' : '' }}">

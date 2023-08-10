@@ -156,6 +156,18 @@
                                            
                                 </div>
 
+                            </div>
+
+                            <div class="d-flex">
+                                
+                                <div class="mb-3 mx-3 w-50">
+                                    <label for="image3" class="form-label">Product image 4</label>
+                                    <input type="file" class="form-control py-2" value="{{$home_mat->image3}}" name="image3" id="image3" >
+                                    <img src="{{ asset('storage/images/' . $home_mat->image3) }}" alt="product not found" style="width:50px!important;height:50px!important;" class="rounded-0">
+                                           
+                                </div>
+
+
                                 <div class="mb-3 mx-3 w-50">
                                     <label for="status" class="form-label">Status</label>
                                     <select class="form-select" id="status" name="status"
