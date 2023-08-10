@@ -43,7 +43,7 @@ a {
     cursor: pointer;
 }
 
-a:hover{
+a:hover {
     color: white;
 }
 
@@ -185,6 +185,10 @@ a:hover{
         padding-left: 1rem !important;
     }
 }
+
+.non-icon li{
+    margin-bottom: 0.8rem;
+}
 </style>
 
 
@@ -203,10 +207,14 @@ a:hover{
         <li></li>
     </ul>
 
+    <style>
+        
+    </style>
+
     <div class="information-block">
         <div class="information footer-links">
             <h4>Products</h4>
-            <ul>
+            <ul class="non-icon">
                 <li><a href="/home mattress">Mattress</a></li>
                 <li><a href="">Royal Mattress</a></li>
                 <li><a href="">Pillows</a></li>
@@ -222,8 +230,8 @@ a:hover{
                         policy</a></li>
                 <li><a href=""><img class="footer_icons" src="{{ asset('layouts/img/terms-and-conditions.png') }}"
                             alt="">Terms & conditions</a></li>
-                <li><a href="{{route('warranty')}}"><img class="footer_icons" src="{{ asset('layouts/img/Warranty.png') }}"
-                            alt="">Warranty</a></li>
+                <li><a href="{{route('warranty')}}"><img class="footer_icons"
+                            src="{{ asset('layouts/img/Warranty.png') }}" alt="">Warranty</a></li>
             </ul>
         </div>
 
@@ -241,12 +249,31 @@ a:hover{
                     payments</li>
             </ul>
         </div>
+
+        <style>
+            .social_icon {
+                font-size: 1.5rem;
+            }
+        </style>
+
+        <div class="social-media footer-links">
+            <h4>Social media</h4>
+            <ul class="non-icon">
+                <li><i class="fa-brands fa-square-facebook social_icon"></i> Facebook</li>
+                <li><i class="fa-brands fa-square-instagram social_icon"></i> Instagram</li>
+                <li><i class="fa-brands fa-square-twitter social_icon"></i> Twitter</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="copywrite">
+    <!-- <div class="copywrite">
         <h3>Restin</h3>
         <p>Copyright © 2023 All rights reserved</p>
-    </div>
+    </div> -->
+
+
+
+
 </footer>
 
 

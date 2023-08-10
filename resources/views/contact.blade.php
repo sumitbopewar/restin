@@ -34,8 +34,8 @@
 
 
 <!-- Contact Image Section -->
-<div class="d-flex justify-content-center align-items-center" style="background-image: url('img/background_mattress.jpg');height: 400px;
-    background-size: cover;">
+<div class="d-flex justify-content-center align-items-center" style="background-image: url('/layouts/img/back-2.jpeg');height: 400px;
+    background-size: cover; margin-top: 4rem;">
     <div class="">
 
         <h2 class="fw-light">Contacts</h2>
