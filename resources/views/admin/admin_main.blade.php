@@ -33,8 +33,10 @@
     <div class="container-scroller" id="app">
         @include('admin.include.header')
         <div class="container-fluid page-body-wrapper">
+            
             @include('admin.include.sidebar')
-            <div class="main-panel p-0 m-0">
+
+            <div class="main-panel p-0 m-0" style="overflow:hidden;overflow-y: scroll;height:100;">
                 <div class="content-wrapper m-0">
                     @yield('content')
                 </div>

@@ -42,8 +42,13 @@ class HotelMattressController extends Controller
         $hotelmat->product = $request->product;
         $hotelmat->price = $request->price;
         $hotelmat->status = $request->status;
+        $hotelmat->about = $request->about;
 
         $image = $request->file('image');
+        $collection_img = $request->file('collection_img');
+        $img2 = $request->file('img2');
+        $img3 = $request->file('img3');
+        $img4 = $request->file('img4');
 
             if ($image) {
                 $allowedExtensions = ['png', 'jpg', 'jpeg'];
@@ -56,6 +61,54 @@ class HotelMattressController extends Controller
                 $imageName = $image->getClientOriginalName();
                 $imagePath = $image->storeAs('public/images', $imageName);
                 $hotelmat->image = $imageName;
+            }
+            if ($collection_img) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                $extension = strtolower($collection_img->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $collection_img->getClientOriginalName();
+                $imagePath = $collection_img->storeAs('public/images', $imageName);
+                $hotelmat->collection_img = $imageName;
+            }
+            if ($img2) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                $extension = strtolower($img2->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $img2->getClientOriginalName();
+                $imagePath = $img2->storeAs('public/images', $imageName);
+                $hotelmat->img2 = $imageName;
+            }
+            if ($img3) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                $extension = strtolower($img3->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $img3->getClientOriginalName();
+                $imagePath = $img3->storeAs('public/images', $imageName);
+                $hotelmat->img3 = $imageName;
+            }
+            if ($img4) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                $extension = strtolower($img4->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $img4->getClientOriginalName();
+                $imagePath = $img4->storeAs('public/images', $imageName);
+                $hotelmat->img4 = $imageName;
             }
         
         $hotelmat->save();
@@ -93,8 +146,13 @@ class HotelMattressController extends Controller
         $hotelmat->product = $request->product;
         $hotelmat->price = $request->price;
         $hotelmat->status = $request->status;
+        $hotelmat->about = $request->about;
 
         $image = $request->file('image');
+        $collection_img = $request->file('collection_img');
+        $img2 = $request->file('img2');
+        $img3 = $request->file('img3');
+        $img4 = $request->file('img4');
 
             if ($image) {
                 $allowedExtensions = ['png', 'jpg', 'jpeg'];
@@ -107,6 +165,54 @@ class HotelMattressController extends Controller
                 $imageName = $image->getClientOriginalName();
                 $imagePath = $image->storeAs('public/images', $imageName);
                 $hotelmat->image = $imageName;
+            }
+            if ($collection_img) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                $extension = strtolower($collection_img->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $collection_img->getClientOriginalName();
+                $imagePath = $collection_img->storeAs('public/images', $imageName);
+                $hotelmat->collection_img = $imageName;
+            }
+            if ($img2) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                $extension = strtolower($img2->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $img2->getClientOriginalName();
+                $imagePath = $img2->storeAs('public/images', $imageName);
+                $hotelmat->img2 = $imageName;
+            }
+            if ($img3) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                $extension = strtolower($img3->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $img3->getClientOriginalName();
+                $imagePath = $img3->storeAs('public/images', $imageName);
+                $hotelmat->img3 = $imageName;
+            }
+            if ($img4) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                $extension = strtolower($img4->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $img4->getClientOriginalName();
+                $imagePath = $img4->storeAs('public/images', $imageName);
+                $hotelmat->img4 = $imageName;
             }
         
         $hotelmat->update();

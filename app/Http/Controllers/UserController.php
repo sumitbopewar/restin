@@ -45,15 +45,12 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        $userData = User::all();
-        return view('admin.user_list',compact('userData'));
+        
     }
 
     public function delete(User $user ,$id)
     {
-        $users = User::find($id);
-        $users->delete();
-        return redirect('/user_list')->with('success', 'User deleted successfully.');
+        
     }
 
 

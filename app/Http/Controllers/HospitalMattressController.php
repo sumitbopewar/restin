@@ -47,8 +47,13 @@ class HospitalMattressController extends Controller
         $hospitalmat->product = $request->product;
         $hospitalmat->price = $request->price;
         $hospitalmat->status = $request->status;
+        $hospitalmat->about = $request->about;
 
         $image = $request->file('image');
+        $collection_img = $request->file('collection_img');
+        $img2 = $request->file('img2');
+        $img3 = $request->file('img3');
+        $img4 = $request->file('img4');
 
             // Validate the uploaded image
             if ($image) {
@@ -63,6 +68,58 @@ class HospitalMattressController extends Controller
                 $imageName = $image->getClientOriginalName();
                 $imagePath = $image->storeAs('public/images', $imageName);
                 $hospitalmat->image = $imageName;
+            }
+            if ($collection_img) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                // Check if the file extension is allowed
+                $extension = strtolower($collection_img->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $collection_img->getClientOriginalName();
+                $imagePath = $collection_img->storeAs('public/images', $imageName);
+                $hospitalmat->collection_img = $imageName;
+            }
+            if ($img2) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                // Check if the file extension is allowed
+                $extension = strtolower($img2->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $img2->getClientOriginalName();
+                $imagePath = $img2->storeAs('public/images', $imageName);
+                $hospitalmat->img2 = $imageName;
+            }
+            if ($img3) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                // Check if the file extension is allowed
+                $extension = strtolower($img3->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $img3->getClientOriginalName();
+                $imagePath = $img3->storeAs('public/images', $imageName);
+                $hospitalmat->img3 = $imageName;
+            }
+            if ($img4) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                // Check if the file extension is allowed
+                $extension = strtolower($img4->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $img4->getClientOriginalName();
+                $imagePath = $img4->storeAs('public/images', $imageName);
+                $hospitalmat->img4 = $imageName;
             }
         
         $hospitalmat->save();
@@ -108,8 +165,13 @@ class HospitalMattressController extends Controller
         $hospitalmat->product = $request->product;
         $hospitalmat->price = $request->price;
         $hospitalmat->status = $request->status;
+        $hospitalmat->about = $request->about;
 
         $image = $request->file('image');
+        $collection_img = $request->file('collection_img');
+        $img2 = $request->file('img2');
+        $img3 = $request->file('img3');
+        $img4 = $request->file('img4');
 
             // Validate the uploaded image
             if ($image) {
@@ -124,6 +186,58 @@ class HospitalMattressController extends Controller
                 $imageName = $image->getClientOriginalName();
                 $imagePath = $image->storeAs('public/images', $imageName);
                 $hospitalmat->image = $imageName;
+            }
+            if ($collection_img) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                // Check if the file extension is allowed
+                $extension = strtolower($collection_img->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $collection_img->getClientOriginalName();
+                $imagePath = $collection_img->storeAs('public/images', $imageName);
+                $hospitalmat->collection_img = $imageName;
+            }
+            if ($img2) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                // Check if the file extension is allowed
+                $extension = strtolower($img2->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $img2->getClientOriginalName();
+                $imagePath = $img2->storeAs('public/images', $imageName);
+                $hospitalmat->img2 = $imageName;
+            }
+            if ($img3) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                // Check if the file extension is allowed
+                $extension = strtolower($img3->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $img3->getClientOriginalName();
+                $imagePath = $img3->storeAs('public/images', $imageName);
+                $hospitalmat->img3 = $imageName;
+            }
+            if ($img4) {
+                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+
+                // Check if the file extension is allowed
+                $extension = strtolower($img4->getClientOriginalExtension());
+                if (!in_array($extension, $allowedExtensions)) {
+                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+                }
+
+                $imageName = $img4->getClientOriginalName();
+                $imagePath = $img4->storeAs('public/images', $imageName);
+                $hospitalmat->img4 = $imageName;
             }
         
         $hospitalmat->update();

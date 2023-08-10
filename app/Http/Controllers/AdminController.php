@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use Spatie\Permission\Models\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -16,6 +17,7 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $permissions = Permission::all();
         return view('admin.login');
     }
 
@@ -31,7 +33,7 @@ class AdminController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-    
+
         if (Auth::guard('admin')->attempt($credentials)) {
             Log::debug('Admin login successful', ['email' => $credentials['email']]);
             return redirect()->intended('/admin/dashboard');
@@ -42,13 +44,32 @@ class AdminController extends Controller
             ]);
         }
     }
-    
+    public function admin_register(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6|confirmed',
+            'role_access' => 'array'
+        ]);
+
+        $user = new Admin();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        // $user->assignRole('user');
+        // $user->givePermissionTo($request->role_access);
+
+        return redirect('/add_user')->with('success', 'User registered successfully.');
+    }
 
     public function logout()
     {
         Auth::guard('admin')->logout();
 
-        return redirect('/admin/login'); 
+        return redirect('/admin/login');
     }
 
 
@@ -65,7 +86,8 @@ class AdminController extends Controller
      */
     public function show(Admin $admin)
     {
-        //
+        $userData = Admin::all();
+        return view('admin.user_list', compact('userData'));
     }
 
     /**
@@ -87,8 +109,10 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Admin $admin)
+    public function destroy(Admin $admin, $id)
     {
-        //
+        $users = Admin::find($id);
+        $users->delete();
+        return redirect('/user_list')->with('success', 'User deleted successfully.');
     }
 }

@@ -169,6 +169,7 @@ padding: 0;
 }
 
 html {
+  /* overflow: hidden!important; */
 scroll-behavior: smooth;
 }
 
