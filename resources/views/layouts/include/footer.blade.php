@@ -10,10 +10,7 @@ footer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* background: rgb(0, 26, 73); */
-    /* background: linear-gradient(142deg, rgba(0, 26, 73, 0.9864320728291317) 0%, rgba(0, 0, 96, 1) 17%, rgba(0, 52, 255, 1) 81%); */
     color: white;
-    /* background-image: url('WhatsApp Image 2023-07-28 at 4.40.49 PM.jpeg'); */
 }
 
 .footer-links {
@@ -193,6 +190,7 @@ a:hover {
 .bottom_copywrite {
     text-align: center;
     margin: auto;
+    color: white;
 }
 
 .social_icon {

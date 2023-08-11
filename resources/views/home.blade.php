@@ -38,6 +38,10 @@
         padding-left: 0.5rem !important;
         font-size: 1rem;
     }
+
+    .cart-container{
+        padding: 0px;
+    }
 }
 </style>
 
@@ -119,14 +123,14 @@ const carousel = new bootstrap.Carousel(carouselElement, {
 }
 
 @media screen and (max-width: 590px) {
-    .row>* {
+    /* .row>* {
         flex-shrink: 0;
         width: 50%;
         max-width: 100%;
         padding-right: calc(var(--bs-gutter-x) * .5);
         padding-left: calc(var(--bs-gutter-x) * .5);
         margin-top: var(--bs-gutter-y);
-    }
+    } */
 
     .icon-title {
         font-weight: 700;
@@ -364,7 +368,7 @@ const carousel = new bootstrap.Carousel(carouselElement, {
 
 <div class="container py-5 bg-light">
     <div class="row">
-        <div class="col-lg-4 col-md-12 col-sm-12 p-5">
+        <div class="col-lg-4 col-md-12 col-sm-12 pb-3">
             <h1 style="font-weight: 700;">50+ Beutiful rooms inspiration</h1>
             <p>Our designer already made a lot of beutiful prototipe of rooms that inspire you</p>
             <button type="button" class="btn btn-primary rounded-0 text-white">Explore More</button>
@@ -400,11 +404,11 @@ const carousel = new bootstrap.Carousel(carouselElement, {
                     </div>
                     <div class="carousel-item">
                         <div class="row">
-                            <div class="col-md-6 col-sm-12">
+                            <div class="col-md-6 col-sm-6">
                                 <img src="{{ asset('layouts/img/p1.jpg') }}" class="d-block w-100" alt="..."
                                     style="height: 500px!important;">
                             </div>
-                            <div class="col-md-6 col-sm-12">
+                            <div class="col-md-6 col-sm-6">
                                 <img src="{{ asset('layouts/img/c2.png') }}" class="d-block w-100" alt="..."
                                     style="height: 400px!important;">
                             </div>
