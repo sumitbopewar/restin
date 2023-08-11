@@ -7,6 +7,48 @@
 <!--Carousel Section-->
 
 <style>
+
+
+
+
+
+/* CSS */
+.button-89 {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.button-89:active {
+  background: var(--color);
+  color: #fff;
+}
+
+
 @media screen and (max-width: 600px) {
     .carousel {
         margin-top: 4.5rem;
@@ -39,6 +81,7 @@
         font-size: 1rem;
     }
 }
+
 </style>
 
 <section id="home" class="hero_slider">
@@ -165,17 +208,17 @@ const carousel = new bootstrap.Carousel(carouselElement, {
 <!-- Card Section starts -->
 
 <section class="mx-3">
-    <h2 class="OP text-center">Home Mattress</h2>
+    <!-- <h2 class="OP text-center">Home Mattress</h2> -->
 
     <!-- Navigate Buttons starts -->
 
     <nav class="">
         <div class="nav nav-tabs products_div" id="nav-tab" role="tablist">
-            <button class="nav-link active tabs" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+            <button class="mx-2 active tabs button-89" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
                 type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home Mattress</button>
-            <button class="nav-link tabs" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+            <button class="mx-2 tabs button-89" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
                 type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Royal Mattress</button>
-            <button class="nav-link tabs" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+            <button class="mx-2 tabs button-89" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
                 type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Sleep
                 Essentials</button>
         </div>
@@ -374,6 +417,7 @@ const carousel = new bootstrap.Carousel(carouselElement, {
 
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                 <div class="carousel-inner">
+
                     <div class="carousel-item active">
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
@@ -386,6 +430,7 @@ const carousel = new bootstrap.Carousel(carouselElement, {
                             </div>
                         </div>
                     </div>
+
                     <div class="carousel-item">
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
@@ -398,6 +443,7 @@ const carousel = new bootstrap.Carousel(carouselElement, {
                             </div>
                         </div>
                     </div>
+
                     <div class="carousel-item">
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
@@ -410,7 +456,9 @@ const carousel = new bootstrap.Carousel(carouselElement, {
                             </div>
                         </div>
                     </div>
+
                 </div>
+
 
 
 

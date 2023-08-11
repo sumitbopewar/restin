@@ -35,7 +35,7 @@
         </div>
 
         <h3 class="mb-3" style="font-family: Courier New;">What to do with the old mattress</h3>
-        <p class="mb-5">The best way to get rid of the old Mattress is to ask the store you purchase a new mattress from to pick up the old mattress. Recyclers usually pick up the old mattress from Retailers and grind down all of the materials for recycling.</p>
+        <p class="mb-5  ">The best way to get rid of the old Mattress is to ask the store you purchase a new mattress from to pick up the old mattress. Recyclers usually pick up the old mattress from Retailers and grind down all of the materials for recycling.</p>
 
         <h3 class="mb-5 text-end" style="font-family: serif;">WE ALSO MAKE MATTRESS AS PER CUSTOMERS <br> SPECIFICATIONS.</h3>
         <p class="mb-5">Mattress are custom made to meet your sleeping needs and habits. You can choose the Thickness, Comfort level (Soft, Medium, Hard) & the Fabric to get the mattress you want at no extra cost.</p>
