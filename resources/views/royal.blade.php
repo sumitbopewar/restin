@@ -64,6 +64,10 @@
     margin: auto;
     padding: 0px;
 }
+
+p{
+    font-size: 1.1rem;
+}
 </style>
 
 <!--<h1>Royal Mattress</h1>-->
@@ -113,7 +117,7 @@
     </div>
 
     <div class="col-lg-6 col-md-12">
-        <video class="royal_video" autoplay loop>
+        <video class="royal_video" autoplay mute loop>
             <source src="{{ asset('layouts/img/Shruti.mp4') }}" type="video/mp4">
             <source src="{{ asset('layouts/img/Shruti.mp4') }}" type="video/ogg">
             Your browser does not support the video tag.
@@ -123,18 +127,7 @@
 </div>
 
 <section>
-    <div class="row mt-5 d-flex justify-content-between align-items-center cart-container px-5 mx-5">
-
-        <!-- Ortho logo style -->
-        <!-- <style>
-        .ortho_img {
-            /* position: absolute;
-            top: 5%;
-            left: 10px; */
-            height: 100px;
-            width: 100px;
-        }
-        </style> -->
+    <div class="row mt-5 d-flex justify-content-between align-items-center cart-container mx-5">
 
         @foreach ($royal as $item)
         <!-- Ortho Logo -->

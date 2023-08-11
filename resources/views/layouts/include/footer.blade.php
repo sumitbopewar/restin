@@ -10,8 +10,8 @@ footer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    background: rgb(0, 26, 73);
-    background: linear-gradient(142deg, rgba(0, 26, 73, 0.9864320728291317) 0%, rgba(0, 0, 96, 1) 17%, rgba(0, 52, 255, 1) 81%);
+    /* background: rgb(0, 26, 73); */
+    /* background: linear-gradient(142deg, rgba(0, 26, 73, 0.9864320728291317) 0%, rgba(0, 0, 96, 1) 17%, rgba(0, 52, 255, 1) 81%); */
     color: white;
     /* background-image: url('WhatsApp Image 2023-07-28 at 4.40.49 PM.jpeg'); */
 }
@@ -189,10 +189,20 @@ a:hover {
 .non-icon li {
     margin-bottom: 0.8rem;
 }
+
+.bottom_copywrite {
+    text-align: center;
+    margin: auto;
+}
+
+.social_icon {
+    font-size: 1.5rem;
+    margin: 4px;
+}
 </style>
 
-
-<footer class="area">
+<div class="area">
+<footer>
 
     <ul class="circles">
         <li></li>
@@ -206,10 +216,6 @@ a:hover {
         <li></li>
         <li></li>
     </ul>
-
-    <style>
-
-    </style>
 
     <div class="information-block">
         <div class="information footer-links">
@@ -232,6 +238,9 @@ a:hover {
                             alt="">Terms & conditions</a></li>
                 <li><a href="{{route('warranty')}}"><img class="footer_icons"
                             src="{{ asset('layouts/img/Warranty.png') }}" alt="">Warranty</a></li>
+
+                <li><a href="{{route('how_to_choose')}}"><img class="footer_icons"
+                            src="{{ asset('layouts/img/check.png') }}" alt="">How to choose Right <br> <span style="margin-left: 2.2rem;">mattress?</span></a></li>
             </ul>
         </div>
 
@@ -250,34 +259,33 @@ a:hover {
             </ul>
         </div>
 
-        <style>
-        .social_icon {
-            font-size: 1.5rem;
-        }
-        </style>
-        <!-- 
-        <div class="social-media footer-links">
-            <h4>Social media</h4>
-            <ul class="non-icon">
-                <li><i class="fa-brands fa-square-facebook social_icon"></i> Facebook</li>
-                <li><i class="fa-brands fa-square-instagram social_icon"></i> Instagram</li>
-                <li><i class="fa-brands fa-square-twitter social_icon"></i> Twitter</li>
-            </ul>
-        </div> -->
+
+
     </div>
 
     <div class="copywrite ">
         <h4>Restin Industries</h4>
         <p><i class="fa-solid fa-location-dot"></i> N 101/7, MIDC, Hingna Road, Nagpur-440016
-        <br>  <span style="margin-left: 1rem;">Maharashtra, India</span></p>
+            <br> <span style="margin-left: 1rem;">Maharashtra, India</span>
+        </p>
         <p><i class="fa-solid fa-phone"></i> +91 77559 18227</p>
         <p><i class="fa-solid fa-envelope"></i> customer@restin.in</p>
+
+        <ul class="non-icon d-flex">
+            <li><i class="fa-brands fa-square-facebook social_icon"></i></li>
+            <li><i class="fa-brands fa-square-instagram social_icon"></i></li>
+            <li><i class="fa-brands fa-square-twitter social_icon"></i></li>
+        </ul>
+    </div>
+
+</footer>
+
+    <div class="bottom_copywrite">
+        <p>Copywrite &copy; 2023 Restin Industries. All Rights Reserved</p>
     </div>
 
 
-
-
-</footer>
+</div>
 
 
 
