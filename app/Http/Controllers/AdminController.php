@@ -27,23 +27,23 @@ class AdminController extends Controller
 
     // ...
 
-    public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+    // public function login(Request $request)
+    // {
+    //     $credentials = $request->validate([
+    //         'email' => 'required|email',
+    //         'password' => 'required',
+    //     ]);
 
-        if (Auth::guard('admin')->attempt($credentials)) {
-            Log::debug('Admin login successful', ['email' => $credentials['email']]);
-            return redirect()->intended('/admin/dashboard');
-        } else {
-            Log::debug('Admin login failed', ['email' => $credentials['email']]);
-            return redirect()->back()->withErrors([
-                'email' => 'Invalid credentials.',
-            ]);
-        }
-    }
+    //     if (Auth::guard('admin')->attempt($credentials)) {
+    //         Log::debug('Admin login successful', ['email' => $credentials['email']]);
+    //         return redirect()->intended('/admin/dashboard');
+    //     } else {
+    //         Log::debug('Admin login failed', ['email' => $credentials['email']]);
+    //         return redirect()->back()->withErrors([
+    //             'email' => 'Invalid credentials.',
+    //         ]);
+    //     }
+    // }
     public function admin_register(Request $request)
     {
         $request->validate([

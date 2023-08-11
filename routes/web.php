@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ViewProductController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
+// use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MasterSizeController;
 use App\Http\Controllers\SizeMMController;
