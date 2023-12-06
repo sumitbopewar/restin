@@ -142,7 +142,7 @@
 
                                 <div class="mb-3 mx-3 w-50">
                                     <label for="img4" class="form-label">Product image4</label>
-                                    <input type="file" class="form-control py-2" name="img4" id="img4" required>
+                                    <input type="file" class="form-control py-2" name="img4" id="img4" >
                                 </div>
 
                                 <div class="mb-3 mx-3 w-50">

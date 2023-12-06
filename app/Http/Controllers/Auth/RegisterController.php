@@ -50,10 +50,16 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'mobile' => ['required', 'string', 'regex:/^\+?[0-9]{10,11}$/'],
+        'address' => ['required', 'string', 'max:255', 'unique:users'],
+        'pin' => ['required', 'string', 'regex:/^[0-9]{6}$/'],
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+    ], [
+        'mobile.regex' => 'The phone number must be a valid 10 or 11-digit numeric value.',
+        'pin.regex' => 'The pin code must be a valid 6-digit numeric value.',
+    ]);
     }
 
     /**

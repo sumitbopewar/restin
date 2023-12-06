@@ -1,22 +1,144 @@
 @extends('layouts.app')
 
+<style>
+    /* Add this CSS to your stylesheet */
+    .zoom-container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .zoomed-image {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        /* Initially, place it outside the container */
+        opacity: 0;
+        transform: scale(1.5);
+        /* Adjust the zoom level as needed */
+        transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .caro-img:hover .zoomed-image {
+        opacity: 1;
+        left: 0;
+        /* Move it inside the container */
+        transform: scale(1);
+    }
+    .collection_tag{
+        position: absolute;
+        left: -40px;
+        transform:none;
+        width: 95px;
+        z-index:999;
+    }
+    .collection_tag_1{
+        position: absolute;
+        left: -40px;
+        top: 145px;
+        transform:none;
+        width: 95px;
+        z-index:999;
+    }
+    .collection_tag_2{
+        position: absolute;
+        left: -48px;
+        transform:none;
+        width: 95px;
+        z-index:999;
+        top: 255px;
+    }
+    @media screen and (max-width: 1400px){
+            .collection_tag{
+            width: 80px;
+        }
+            .collection_tag_1{
+            top: 120px;
+            width: 80px;
+        }
+            .collection_tag_2{
+            width: 87px;
+            top: 210px;
+        }
+    }
+    @media screen and (max-width: 1200px){
+            .collection_tag{
+            width: 55px;
+            top:55px;
+        }
+            .collection_tag_1{
+            top: 120px;
+            width: 55px;
+        }
+            .collection_tag_2{
+                width: 62px;
+                top: 188px;
+        }
+    }
+    
+    @media screen and (max-width: 1000px){
+        .collection_main{
+            display: flex!important;
+            align-items: center!important;
+            justify-content: space-between!important;
+        }
+        .collection_tag{
+            height:75px;
+            position: unset;
+            width:unset;
+        }
+        .collection_tag_1{
+            height:75px;
+            position: unset;
+            width:unset;
+        }
+        .collection_tag_2{
+            height:50px;
+            width:100px;
+            position: unset;
+        }
+    }
+</style>
 
 @section('content')
     <div class="main_card container">
-        <div class="product-card ">
+        <div class="product-card " style="position:relative;">
+            <div class="collection_main">
+                <img src="{{ asset('storage/images/' . $home_mattress->img4) }}" class="collection_tag mt-2"  alt="collection" srcset="">
+                <img src="layouts/img/guarantee.png" class="collection_tag_1 mt-2"  alt="collection" srcset="">
+                <img src="layouts/img/free_shipping.png" class="collection_tag_2 mt-2"  alt="collection" srcset="">
+            </div>
+            <!--<img src="{{ asset('layouts/img/' . $home_mattress->img4) }}" class=""-->
+            <!--    style="position: absolute;left: -58px;top:177px;transform:none;width:100px;z-index:999;" alt="collection"-->
+            <!--    srcset="">-->
+
+
 
             <div id="carouselExampleRide" class="carousel slide _slider" data-bs-ride="true">
                 <div class="carousel-inner">
                     <div class="carousel-item active caro-img">
-                        <img src="{{ asset('storage/images/' . $home_mattress->image) }}" class="d-block w-100 car-img"
-                            alt="...">
+                        <div class="zoom-container">
+                            <img src="{{ asset('storage/images/' . $home_mattress->image) }}" class="d-block w-100 car-img"
+                                alt="...">
+                            <div class="zoomed-image">
+                                <img src="{{ asset('storage/images/' . $home_mattress->image) }}" alt="Zoomed Image">
+                            </div>
+                        </div>
                     </div>
                     <div class="carousel-item caro-img">
-                        <img src="{{ asset('storage/images/' . $home_mattress->img2) }}" class="d-block w-100 car-img"
-                            alt="...">
+                        <div class="zoom-container">
+                            <img src="{{ asset('storage/images/' . $home_mattress->img2) }}" class="d-block w-100 car-img"
+                                alt="...">
+                            <div class="zoomed-image">
+                                <img src="{{ asset('storage/images/' . $home_mattress->img2) }}" alt="Zoomed Image">
+                            </div>
+                        </div>
                     </div>
                     <div class="carousel-item caro-img">
                         <img src="{{ asset('storage/images/' . $home_mattress->img3) }}" class="d-block w-100 car-img"
+                            alt="...">
+                    </div>
+                    <div class="carousel-item caro-img">
+                        <img src="{{ asset('layouts/img/how_to_choose.jpg') }}" class="d-block w-100 car-img"
                             alt="...">
                     </div>
                 </div>
@@ -41,48 +163,62 @@
                         aria-label="Slide 2">
                     <img src="{{ asset('storage/images/' . $home_mattress->img3) }}" class="d-block target-img block_img"
                         alt="..." data-bs-target="#carouselExampleRide" data-bs-slide-to="2" aria-label="Slide 3">
+                    <img src="{{ asset('layouts/img/how_to_choose.jpg') }}" class="d-block target-img block_img"
+                        alt="..." data-bs-target="#carouselExampleRide" data-bs-slide-to="3" aria-label="Slide 4">
                 </div>
 
             </div>
 
-            <div class="_content">
-                <h2 class="product-title">{{ $home_mattress->product }}</h2>
-                {{-- product price --}}
+            <div class="_content mt-5 mt-lg-0 mt-md-0 pt-5 pt-lg-0 pt-md-0">
 
-                <h3 class="text-black-50 fw-bold price" id="price"> </h3>
+                <form action="/cart_data" method="POST">
+                    @csrf
+                    @if (auth()->check())
+                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                    @endif
+                    <input type="hidden" name="image" value="{{ $home_mattress->image }}">
+                    <input type="hidden" name="product" value="{{ $home_mattress->product }}">
 
-                {{-- about this item  --}}
-                <h5 class="">About this item: </h5>
-                <p>{{ $home_mattress->about }} </p>
+                    <h2 class="product-title fw-bold">{{ $home_mattress->product }}</h2>
+                    {{-- product price --}}
+                    <h3 class="fw-bold fs-5 price" id="price"> </h3>
+                    {{-- <div>
+                            <span class="px-3 new-price" style="color:#0075bc;"><i
+                                    class="fa-solid fa-indian-rupee-sign fs-5 pe-2"></i></span>
+                            <span class="fs-6 text-success">15% off</span>
+                        </div> --}}
 
-                <form action="" method="">
+
+                    {{-- about this item  --}}
+                    <p>{{ $home_mattress->about }} </p>
+
 
                     <div class="card-input">
 
                         <div class="btns inpt ">
                             @foreach ($master_size as $size)
                                 <div class="button">
-                                    <input type="radio" class="master_size" id="master_size" name="master_size"
-                                        value="{{ $size->id }}" />
+                                   
+                                    <input type="radio" class="master_size" name="master_size_id"
+                                        value="{{ $size->id }}" required/>
                                     <label class="btn btn-default" for="master_size">{{ $size->size_name }}</label>
+                                   
                                 </div>
                             @endforeach
-
-
                         </div>
                         <br>
 
                         <div class="inpt dorpp">
-                            <select class="form-select unit_id" aria-label="Default select example"
-                                id="exampleFormControlInput1">
-                                <option value="">Select Unit</option>
+                            <select class="form-select unit_id" aria-label="Default select example" name="unit_id"
+                                id="exampleFormControlInput1" data-product-id="{{ $home_mattress->product }}" required>
+                                <option value="" >Select Unit</option>
                             </select>
                         </div>
 
                         <div class="inpt">
                             <label for="product_size" class="form-label">Size</label>
-                            <select class="form-select product_size" aria-label="Default select example" id="product_size"
-                                name="product_size">
+                            <select class="form-select product_size" aria-label="Default select example"
+                                id="product_size" name="Size_id" data-product-name="{{ $home_mattress->product }}" required>
                                 <option value="">Select Size</option>
 
                             </select>
@@ -90,7 +226,8 @@
 
                         <div class="inpt">
                             <label for="thickness_id" class="form-label">Thickness</label>
-                            <select class="form-select " aria-label="Default select example" id="thickness_id">
+                            <select class="form-select " aria-label="Default select example" name="thickness_id"
+                                id="thickness_id" required>
                                 <option value="">Select Thickness</option>
 
                             </select>
@@ -98,16 +235,24 @@
 
                         <div class="quantity-section card-input inpt">
                             <button type="button" class="decrement-btn btn btn-outline-secondary">-</button>
-                            <input type="text" class="quantity-input" value="0" min="0" />
+                            <input type="text" name="quantity" class="quantity-input" value="1"
+                                min="1" />
                             <button type="button" class="increment-btn btn btn-outline-secondary">+</button>
                         </div>
 
 
                         <div class="purchase-info inpt">
-                            <button type="button" class="btn btn-primary">
+                           @if(Auth::check())
+                            <button type="submit" class="btn btn-primary">
                                 Add to Cart <i class="fas fa-shopping-cart"></i>
                             </button>
-                            <button type="button" class="btn btn-success">Buy Now</button>
+                            @else
+                            <a href="{{route('login')}}">
+                                <button type="button" class="btn btn-primary">
+                                Add to Cart <i class="fas fa-shopping-cart text-white fs-5 p-0"></i>
+                               </button>
+                            </a>
+                            @endif
                         </div>
                     </div>
 
@@ -131,6 +276,9 @@
             $('.master_size').click(function() {
                 mid = $(this).val();
                 // console.log(mid);
+                if (mid == 6) {
+                    window.open('https://wa.me/917755918227', '_blank');
+                }
 
                 $.ajax({
                     url: '/get_unit',
@@ -157,7 +305,10 @@
 
             $('.unit_id').change(function() {
                 let uid = $(this).val();
-                // console.log(uid);
+                let pname = $(this).attr('data-product-id');
+
+                // console.log(mid);
+                // console.log(pname);
 
                 $.ajax({
                     url: '/get_master_size',
@@ -165,126 +316,208 @@
                     data: {
                         'uid': uid,
                         'mid': mid,
+                        'pname': pname,
                     },
+                    dataType: 'json', // Response data type
                     success: function(result) {
-                        var size_mm = result.size_mm;
-                        var size_inch = result.size_inch;
+
+                        // console.log(result);
+
 
                         var productSizeSelect = $('.product_size');
 
                         productSizeSelect.empty();
-
                         productSizeSelect.append('<option value="">Select Size</option>');
 
-                        $.each(size_mm, function(key, value) {
-                            productSizeSelect.append('<option value="' + value.id +
-                                '">' + value.mm_length + ' * ' + value.mm_breath +
-                                '</option>');
+                        $.each(result, function(index, sizeArray) {
+                            // sizeArray will be an array containing a single object
+                            var size = sizeArray[0];
+
+                            if (size.unit_id == 1) {
+                                productSizeSelect.append('<option value="' + size.id +
+                                    '">' + size.mm_length + ' * ' + size.mm_breath +
+                                    '</option>');
+                            } else {
+                                productSizeSelect.append('<option value="' + size.id +
+                                    '">' + size.inch_length + ' * ' + size
+                                    .inch_breath +
+                                    '</option>');
+                            }
                         });
-                        $.each(size_inch, function(key, value) {
-                            productSizeSelect.append('<option value="' + value.id +
-                                '">' + value.inch_length + ' * ' + value
-                                .inch_breath + '</option>');
-                        });
-                    },
 
 
+                    }
                 });
+
             });
 
             $('.product_size').change(function() {
                 let size_id = $(this).val();
+                let p_name = $(this).attr('data-product-name');
                 // console.log(size_id);
+                // console.log(p_name);
 
                 $.ajax({
                     url: '/get_size_id',
                     type: 'GET',
                     data: {
                         'size_id': size_id,
-                        '_': Date.now() // Add a timestamp as a query parameter
+                        'p_name': p_name,
+                        '_': Date.now()
                     },
                     success: function(result) {
-                        console.log(result);
+                        // console.log(result);
 
                         var select = $('#thickness_id');
                         select.empty();
 
-                        if (result && result.hasOwnProperty('thickness_id') && result
-                            .hasOwnProperty('thickness')) {
-                            var thickness_id = result['thickness_id'];
-                            var thickness = result['thickness'];
+                        if (result && result.hasOwnProperty('thickness')) {
+                            var thicknesses = result['thickness'];
 
                             select.append('<option value="">Select Thickness</option>');
-                            select.append('<option data-pro-id="' + thickness_id.id +
-                                '" value="' +
-                                thickness.id + '">' + thickness.thickness +
-                                '</option>');
+
+                            $.each(thicknesses, function(index, thickness) {
+                                select.append('<option value="' + thickness.id +
+                                    '">' + thickness.thickness +
+                                    '</option>');
+                            });
                         } else {
                             select.append('<option value="">Select Thickness</option>');
                         }
                     },
- 
+
+
                 });
 
             });
 
             $('#thickness_id').change(function() {
-                let pro_size_id = $('.product_size').val();
-                let pro_id = $('#thickness_id option:selected').data('pro-id');
                 let thick_id = $('#thickness_id').val();
-                // console.log(pro_size_id);
-                // console.log(thick_id);
+                let size_id = $('.product_size').val();
+                let p_name = $('.product_size').attr('data-product-name');
 
-                $.ajax({
-                    url: '/get_price',
-                    type: 'GET',
-                    data: {
-                        'thick_id': thick_id,
-                        'mid': mid,
-                        'pro_size_id': pro_size_id,
-                        'pro_id': pro_id,
-                    },
-                    success: function(result) {
-                        console.log(result);
+                // Get the #price element
+                const priceElement = $('#price');
 
-                        if (result.length > 0) {
-                            var firstObject = result[0];
+                // Check if the #price element exists
+                if (priceElement.length) {
+                    $.ajax({
+                        url: '/get_price',
+                        type: 'GET',
+                        data: {
+                            'size_id': size_id,
+                            'p_name': p_name,
+                            'thick_id': thick_id,
+                        },
+                        success: function(result) {
+                            if (result.length > 0) {
+                                var firstObject = result[0];
 
-                            if (firstObject.hasOwnProperty('price') && firstObject.price !==
-                                null) {
-                                $('#price').empty();
-                                $('#price').append(firstObject.price);
+                                if (firstObject.hasOwnProperty('price') && firstObject.price !==
+                                    null) {
+
+                                    let currentPriceString = firstObject.price;
+                                    let currentPriceWithoutCommas = currentPriceString.replace(
+                                        /,/g, '');
+                                    let currentPrice = parseFloat(currentPriceWithoutCommas);
+                                    let discountPercentage = 15;
+                                    let discount = currentPrice - (currentPrice * (
+                                        discountPercentage /
+                                        100));
+                                    let discountedPrice = parseInt(discount)
+
+                                    // console.log(discountedPrice);
+                                    // console.log(priceElement);
+
+                                    let formattedDiscountedPrice = discountedPrice
+                                        .toLocaleString('en-IN', {
+                                            style: 'currency',
+                                            currency: 'INR'
+                                        });
+
+                                    // console.log(formattedDiscountedPrice);
+
+                                    let discountedPriceHTML = formattedDiscountedPrice;
+
+
+
+                                    priceElement.empty();
+                                    priceElement.append(
+                                        '<input type="hidden" name="price" value="' +
+                                        discountedPrice +
+                                        '"><input type="hidden" name="home_id" value="' +
+                                        firstObject
+                                        .id +
+                                        '"><i class="fa-solid fa-indian-rupee-sign fs-6 pe-1 text-danger"></i><span class=" text-decoration-line-through text-danger get_price">' +
+                                        firstObject.price +
+                                        '</span> <span class="px-3 new_price" style="color:#0075bc;">' +
+                                        discountedPriceHTML +
+                                        '</span><span class="fs-6 text-success">15% off</span>'
+
+                                    );
+                                } else {
+                                    priceElement.empty();
+                                    priceElement.append('');
+                                    console.log(
+                                        'Price is not valid or not present in the result object.'
+                                    );
+                                }
                             } else {
-                                $('#price').empty();
-                                $('#price').append('');
-                                console.log(
-                                    'Price is not valid or not present in the result object.'
-                                );
+                                priceElement.empty();
+                                priceElement.append('');
+                                console.log('Result array is empty.');
                             }
-                        } else {
-                            $('#price').empty();
-                            $('#price').append('');
-                            console.log('Result array is empty.');
-                        }
-                    },
 
-
-                });
-
+                        },
+                    });
+                } else {
+                    console.log('#price element not found in the DOM');
+                }
             });
 
         });
+    </script>
 
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".zoom-container").mousemove(function(e) {
+                const $container = $(this);
+                const $zoomedImage = $container.find(".zoomed-image");
+                const containerWidth = $container.width();
+                const containerHeight = $container.height();
+                const imageWidth = $zoomedImage.width();
+                const imageHeight = $zoomedImage.height();
 
+                const mouseX = e.pageX - $container.offset().left;
+                const mouseY = e.pageY - $container.offset().top;
 
+                const moveX = (mouseX / containerWidth) * (imageWidth - containerWidth);
+                const moveY = (mouseY / containerHeight) * (imageHeight - containerHeight);
 
+                $zoomedImage.css({
+                    left: -moveX + "px",
+                    top: -moveY + "px"
+                });
+            });
 
+        });
+    </script>
+    
+    <script>
+    $(document).ready(function() {
+    $('.dropdown').hover(
+        function() {
+            $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeIn();
+        },
+        function() {
+            $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeOut();
+        }
+    );
+});
 
-
-
-
-        document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
             const quantityInput = document.querySelector(".quantity-input");
             const incrementBtn = document.querySelector(".increment-btn");
             const decrementBtn = document.querySelector(".decrement-btn");
@@ -301,5 +534,6 @@
                 }
             });
         });
-    </script>
+</script>
+
 @endsection

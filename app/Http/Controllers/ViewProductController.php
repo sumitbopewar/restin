@@ -12,6 +12,7 @@ use App\Models\SizeMM;
 use App\Models\SizeInch;
 use App\Models\Thickness;
 use Illuminate\Http\Request;
+use DB;
 
 class ViewProductController extends Controller
 {
@@ -19,69 +20,111 @@ class ViewProductController extends Controller
     {
         $unit = Unit::all();
 
-            // dd($size_mm);
-            // die();
+        // dd($size_mm);
+        // die();
 
         return response()->json($unit);
-            
+
     }
 
     public function get_master_size(Request $request)
     {
-        $size_mm = SizeMM::where([
-            ['master_size_id', '=', $request->input('mid')],
-            ['unit_id', '=', $request->input('uid')],
-        ])->get();
+        $product = $request->input('pname');
+        $uid = $request->input('uid');
+        $mid = $request->input('mid');
 
-        $size_inch = SizeInch::where([
-            ['master_size_id', '=', $request->input('mid')],
-            ['unit_id', '=', $request->input('uid')],
-        ])->get();
 
-            // dd($size_mm);
-            // die();
-            $result = [
-                'size_mm' => $size_mm,
-                'size_inch' => $size_inch,
-            ];
+        // $homeMattress = HomeMattress::where('product', $product)->where('master_size_id',$mid)->get();
 
-        return response()->json($result);
-            
+        $homeMattress = HomeMattress::select('*')
+            ->whereIn('id', function ($query) use ($product, $mid) {
+                $query->select(DB::raw('MAX(id)'))
+                    ->from('home_mattresses')
+                    ->where('product', $product)
+                    ->where('master_size_id', $mid)
+                    ->groupBy('size_mm', 'size_inch');
+            })
+            ->get();
+
+
+
+        // dd($homeMattress);
+
+
+        // dd($homeMattress);
+
+
+
+        $get_sizeMM = [];
+        $get_sizeInch = [];
+
+        if ($uid == 1) {
+            foreach ($homeMattress as $homeMattress) {
+                $sizeMM = SizeMM::where('id', $homeMattress->size_mm)->get();
+
+                $get_sizeMM[] = $sizeMM;
+            }
+            return response()->json($get_sizeMM);
+        } else {
+            foreach ($homeMattress as $homeMattress) {
+                $sizeInch = SizeInch::where('id', $homeMattress->size_inch)->get();
+
+                $get_sizeInch[] = $sizeInch;
+            }
+            return response()->json($get_sizeInch);
+        }
+
     }
+
+
+
 
     public function get_size_id(Request $request)
     {
         $thickness_id = HomeMattress::where(function ($query) use ($request) {
             $size_id = $request->input('size_id');
-            $query->where('size_mm', $size_id)
-                  ->orWhere('size_inch', $size_id);
-        })->first();
+            $p_name = $request->input('p_name');
 
-        $thickness = Thickness::where('id',$thickness_id->thickness_id)->first();
-        
-            // dd($thickness);
-            // die();
+            $query->where('product', $p_name)
+                ->where(function ($subquery) use ($size_id) {
+                    $subquery->where('size_mm', $size_id)
+                        ->orWhere('size_inch', $size_id);
+                });
+        })->get();
+
+        // dd($thickness_id);
+
+        $result = [];
+
+        if ($thickness_id) {
+            $related_thickness_ids = $thickness_id->pluck('thickness_id')->toArray();
+            // dd($related_thickness_ids);
+
+            // Retrieve the related Thickness records
+            $thicknesses = Thickness::whereIn('id', $related_thickness_ids)->get();
+
+            // dd($thicknesses);
+
             $result = [
-                'thickness' => $thickness,
-                'thickness_id' => $thickness_id,
+                'thickness' => $thicknesses,
+                'thickness_id' => $related_thickness_ids,
             ];
-
+        }
 
         return response()->json($result);
-            
     }
 
     public function get_thick_id(Request $request)
     {
-        $thickness_id = HomeMattress::where('thickness_id',$request->thick_id)->first();
+        $thickness_id = HomeMattress::where('thickness_id', $request->thick_id)->first();
 
-        
-            // dd($thickness_id);
-            // die();
-            
+
+        // dd($thickness_id);
+        // die();
+
 
         return response()->json($thickness_id);
-            
+
     }
 
     public function get_price(Request $request)
@@ -91,26 +134,23 @@ class ViewProductController extends Controller
 
 
         $price = HomeMattress::where([
-            ['master_size_id', '=', $request->input('mid')],
             ['thickness_id', '=', $request->input('thick_id')],
-            ['id', '=', $request->input('pro_id')],
-            ['size_mm', '=', $request->input('pro_size_id')],
+            ['product', '=', $request->input('p_name')],
+            ['size_mm', '=', $request->input('size_id')],
         ])
-        ->orWhere([
-            ['master_size_id', '=', $request->input('mid')],
-            ['thickness_id', '=', $request->input('thick_id')],
-            ['id', '=', $request->input('pro_id')],
-            ['size_inch', '=', $request->input('pro_size_id')],
-        ])
-        ->get();
-        
+            ->orWhere([
+                ['thickness_id', '=', $request->input('thick_id')],
+                ['product', '=', $request->input('p_name')],
+                ['size_inch', '=', $request->input('size_id')],
+            ])
+            ->get();
 
-        
-            // dd($price);
-            // die();
-            
+
+
+        // dd($price);
+
 
         return response()->json($price);
-            
+
     }
 }

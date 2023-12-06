@@ -8,11 +8,11 @@
 
 <style>
     .warranty_container{
-        /*border: 1px solid black;   */
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
         margin-top: 8rem;
         padding: 2rem;
-        background-color: #deeefa;
         margin-bottom:5rem;
+        background-size: cover;
     }
     
     ._warranty{
@@ -36,11 +36,54 @@
     p{
         /*font-size: 2rem;*/
     }
+    
+            .box {
+            position: relative;
+        }
+
+        .corners {
+            width: 10%;
+            position: absolute;
+        }
+
+        .cor1 {
+            top: 0;
+            left: 0;
+            
+        }
+
+        .cor2 {
+            top: 0;
+            right: 0;
+        }
+
+        .cor3 {
+            bottom: 0;
+            left: 0;
+        }
+
+        .cor4 {
+            bottom: 0;
+            right: 0;
+        }
+        .back_img{
+            background:url('layouts/img/warrenty_family.png');
+            background-size:100% 100%;
+        }
 </style>
 
 
-<div class="container warranty_container">
-<h2 class="text-center _warranty" style="font-weight: bold;">WARRANTY CARD</h2>
+<div class="container warranty_container overflow-hidden box pb-0 pe-0">
+    
+        <img src="layouts/img/corner_top_right.png" class="corners cor1">
+        <img src="layouts/img/corner4.png" class="corners cor2">
+        <!--<img src="layouts/img/corner2.png" class="corners cor3">-->
+        <!--<img src="layouts/img/corner3.png" class="corners cor4">-->
+    
+<!--<h2 class="text-center _warranty" style="font-weight: bold;">WARRANTY CARD</h2>-->
+<h2 class="text-center _warranty mt-0" style="font-weight: bold;">
+    <img src="layouts/img/warrenty_text.png" class="w-50">
+</h2>
 <p class="m_point">Dear Customer,</p>
 <p>Thank you for choosing a Restin Mattress!</p>
 <p>Please follow the instructions to get the best out of your mattress</p>
@@ -84,17 +127,40 @@
 
 
 <p class="m_point">Calculation of Pro rata Warranty.</p>
-<ul>
-    <li>Mattress Purchase Price Rs. 10000/-</li>
-    <li>Warranty period: 2+3 = 5 years</li>
-    <li>Customer usage: 4 years</li>
-    <li>Balance warranty period: 1 year</li>
-    <li>Calculation: 10000*1/5 = Rs.2000</li>
-    <li>Will be the rebate provided to the Customer while buying a new Restin mattress.</li>
-    <li>Claim, if any arising from the warranty will be restricted to courts within the Nagpur jurisdiction only.</li>
-    <li>Any implied warranty on this product, including any implied warranty of merchantability or fitness for particular purpose, shall not exceed in duration the term of his limited warranty, which begins with the date of purchase by the consumer. The terms in this warrantee shall be the consumer's sole and exclusive remedy in the event of product failure during the warrantee period. We shall not be liable for incidental or consequential damages arising out of the use of this product or the inability to use the product, or the breach of this or any other express or implied warranty. </li>
-</ul>
+<!--<ul>-->
+    
+<!--</ul>-->
+<div class="row">
+    <div class="col-md-7 col-lg-7 col-sm-12">
+        <ul class="pb-4">
+            <li>Mattress Purchase Price Rs. 10000/-</li>
+            <li>Warranty period: 2+3 = 5 years</li>
+            <li>Customer usage: 4 years</li>
+            <li class="my-0">Balance warranty period: 1 year</li>
+            <li>Calculation: 10000*1/5 = Rs.2000</li>
+            <li >Will be the rebate provided to the Customer while buying a new Restin mattress.</li>
+            <li style="text-align: justify;">Claim, if any arising from the warranty will be restricted to courts within the Nagpur jurisdiction only.</li>
+            <li style="text-align: justify;" class="my-0">Any implied warranty on this product, including any implied warranty of merchantability or fitness for particular purpose, shall not exceed in duration the term of his limited warranty, which begins with the date of purchase by the consumer. The terms in this warrantee shall be the consumer's sole and exclusive remedy in the event of product failure during the warrantee period. We shall not be liable for incidental or consequential damages arising out of the use of this product or the inability to use the product, or the breach of this or any other express or implied warranty. </li>
+        </ul>
+    </div>
+    <div class="col-md-5 col-lg-5 col-sm-12 ">
+        <img src="layouts/img/warrenty_family.png">
+    </div>
+</div>
 
 </div>
+
+<script>
+    $(document).ready(function() {
+    $('.dropdown').hover(
+        function() {
+            $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeIn();
+        },
+        function() {
+            $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeOut();
+        }
+    );
+});
+</script>
 
 @endsection

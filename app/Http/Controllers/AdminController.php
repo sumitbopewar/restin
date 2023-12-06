@@ -21,29 +21,37 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
+    public function add_user()
+    {
+        
+        $permissions = Permission::all();
+        return view('admin.add_user',compact('permissions'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
 
     // ...
 
-    // public function login(Request $request)
-    // {
-    //     $credentials = $request->validate([
-    //         'email' => 'required|email',
-    //         'password' => 'required',
-    //     ]);
+    public function admin_login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-    //     if (Auth::guard('admin')->attempt($credentials)) {
-    //         Log::debug('Admin login successful', ['email' => $credentials['email']]);
-    //         return redirect()->intended('/admin/dashboard');
-    //     } else {
-    //         Log::debug('Admin login failed', ['email' => $credentials['email']]);
-    //         return redirect()->back()->withErrors([
-    //             'email' => 'Invalid credentials.',
-    //         ]);
-    //     }
-    // }
+        if (Auth::guard('admin')->attempt($credentials)) {
+            Log::debug('Admin login successful', ['email' => $credentials['email']]);
+            return redirect()->intended('/dashboard');
+        } else {
+            Log::debug('Admin login failed', ['email' => $credentials['email']]);
+            return redirect()->back()->withErrors([
+                'email' => 'Invalid credentials.',
+            ]);
+        }
+    }
+    
     public function admin_register(Request $request)
     {
         $request->validate([

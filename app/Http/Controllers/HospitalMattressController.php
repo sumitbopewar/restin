@@ -66,7 +66,9 @@ class HospitalMattressController extends Controller
                 }
 
                 $imageName = $image->getClientOriginalName();
-                $imagePath = $image->storeAs('public/images', $imageName);
+                // $imagePath = $image->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $image->move(public_path('storage/images'), $imagePath);  
                 $hospitalmat->image = $imageName;
             }
             if ($collection_img) {
@@ -79,7 +81,9 @@ class HospitalMattressController extends Controller
                 }
 
                 $imageName = $collection_img->getClientOriginalName();
-                $imagePath = $collection_img->storeAs('public/images', $imageName);
+                // $imagePath = $collection_img->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $collection_img->move(public_path('storage/images'), $imagePath);  
                 $hospitalmat->collection_img = $imageName;
             }
             if ($img2) {
@@ -92,7 +96,9 @@ class HospitalMattressController extends Controller
                 }
 
                 $imageName = $img2->getClientOriginalName();
-                $imagePath = $img2->storeAs('public/images', $imageName);
+                // $imagePath = $img2->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $img2->move(public_path('storage/images'), $imagePath);  
                 $hospitalmat->img2 = $imageName;
             }
             if ($img3) {
@@ -105,7 +111,9 @@ class HospitalMattressController extends Controller
                 }
 
                 $imageName = $img3->getClientOriginalName();
-                $imagePath = $img3->storeAs('public/images', $imageName);
+                // $imagePath = $img3->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $img3->move(public_path('storage/images'), $imagePath);  
                 $hospitalmat->img3 = $imageName;
             }
             if ($img4) {
@@ -118,7 +126,9 @@ class HospitalMattressController extends Controller
                 }
 
                 $imageName = $img4->getClientOriginalName();
-                $imagePath = $img4->storeAs('public/images', $imageName);
+                // $imagePath = $img4->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $img4->move(public_path('storage/images'), $imagePath);  
                 $hospitalmat->img4 = $imageName;
             }
         
@@ -184,7 +194,9 @@ class HospitalMattressController extends Controller
                 }
 
                 $imageName = $image->getClientOriginalName();
-                $imagePath = $image->storeAs('public/images', $imageName);
+                // $imagePath = $image->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $image->move(public_path('storage/images'), $imagePath);  
                 $hospitalmat->image = $imageName;
             }
             if ($collection_img) {
@@ -197,7 +209,9 @@ class HospitalMattressController extends Controller
                 }
 
                 $imageName = $collection_img->getClientOriginalName();
-                $imagePath = $collection_img->storeAs('public/images', $imageName);
+                // $imagePath = $collection_img->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $collection_img->move(public_path('storage/images'), $imagePath);  
                 $hospitalmat->collection_img = $imageName;
             }
             if ($img2) {
@@ -210,7 +224,9 @@ class HospitalMattressController extends Controller
                 }
 
                 $imageName = $img2->getClientOriginalName();
-                $imagePath = $img2->storeAs('public/images', $imageName);
+                // $imagePath = $img2->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $img2->move(public_path('storage/images'), $imagePath);  
                 $hospitalmat->img2 = $imageName;
             }
             if ($img3) {
@@ -223,7 +239,9 @@ class HospitalMattressController extends Controller
                 }
 
                 $imageName = $img3->getClientOriginalName();
-                $imagePath = $img3->storeAs('public/images', $imageName);
+                // $imagePath = $img3->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $img3->move(public_path('storage/images'), $imagePath);  
                 $hospitalmat->img3 = $imageName;
             }
             if ($img4) {
@@ -236,7 +254,9 @@ class HospitalMattressController extends Controller
                 }
 
                 $imageName = $img4->getClientOriginalName();
-                $imagePath = $img4->storeAs('public/images', $imageName);
+                // $imagePath = $img4->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $img4->move(public_path('storage/images'), $imagePath);  
                 $hospitalmat->img4 = $imageName;
             }
         

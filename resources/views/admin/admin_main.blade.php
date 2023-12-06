@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title> Admin Mattress Dashboard </title>
+    <title> Restin-Dashboard </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,6 +18,7 @@
     <!-- end plugin css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'> 
     @stack('plugin-styles')
 
     <!-- common css -->
@@ -49,6 +50,8 @@
 {{-- database table js  --}}
 
     <!-- base js -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
     <script src="{{ asset('admin_assets/js/app.js') }}"></script>
     <script src="{{ asset('admin_assets/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <!-- end base js -->

@@ -52,7 +52,7 @@ class RoyalMattressController extends Controller
         $collection_img = $request->file('collection_img');
         $img2 = $request->file('img2');
         $img3 = $request->file('img3');
-        $img4 = $request->file('img4');
+        // $img4 = $request->file('img4');
 
             // Validate the uploaded image
             if ($image) {
@@ -65,7 +65,9 @@ class RoyalMattressController extends Controller
                 }
 
                 $imageName = $image->getClientOriginalName();
-                $imagePath = $image->storeAs('public/images', $imageName);
+                // $imagePath = $image->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $image->move(public_path('storage/images'), $imagePath);  
                 $royalmat->image = $imageName;
             }
             if ($collection_img) {
@@ -78,7 +80,9 @@ class RoyalMattressController extends Controller
                 }
 
                 $imageName = $collection_img->getClientOriginalName();
-                $imagePath = $collection_img->storeAs('public/images', $imageName);
+                // $imagePath = $collection_img->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $collection_img->move(public_path('storage/images'), $imagePath);  
                 $royalmat->collection_img = $imageName;
             }
             if ($img2) {
@@ -91,7 +95,9 @@ class RoyalMattressController extends Controller
                 }
 
                 $imageName = $img2->getClientOriginalName();
-                $imagePath = $img2->storeAs('public/images', $imageName);
+                // $imagePath = $img2->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $img2->move(public_path('storage/images'), $imagePath);  
                 $royalmat->img2 = $imageName;
             }
             if ($img3) {
@@ -104,22 +110,24 @@ class RoyalMattressController extends Controller
                 }
 
                 $imageName = $img3->getClientOriginalName();
-                $imagePath = $img3->storeAs('public/images', $imageName);
+                // $imagePath = $img3->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $img3->move(public_path('storage/images'), $imagePath);  
                 $royalmat->img3 = $imageName;
             }
-            if ($img4) {
-                $allowedExtensions = ['png', 'jpg', 'jpeg'];
+            // if ($img4) {
+            //     $allowedExtensions = ['png', 'jpg', 'jpeg'];
 
-                // Check if the file extension is allowed
-                $extension = strtolower($img4->getClientOriginalExtension());
-                if (!in_array($extension, $allowedExtensions)) {
-                    return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
-                }
+            //     // Check if the file extension is allowed
+            //     $extension = strtolower($img4->getClientOriginalExtension());
+            //     if (!in_array($extension, $allowedExtensions)) {
+            //         return redirect()->back()->withErrors(['delete' => 'Only PNG, JPG, and JPEG images are allowed.']);
+            //     }
 
-                $imageName = $img4->getClientOriginalName();
-                $imagePath = $img4->storeAs('public/images', $imageName);
-                $royalmat->img4 = $imageName;
-            }
+            //     $imageName = $img4->getClientOriginalName();
+            //     $imagePath = $img4->storeAs('public/images', $imageName);
+            //     $royalmat->img4 = $imageName;
+            // }
         
         $royalmat->save();
         session()->flash('success', 'Mattress submitted successfully');
@@ -182,7 +190,9 @@ class RoyalMattressController extends Controller
                 }
 
                 $imageName = $image->getClientOriginalName();
-                $imagePath = $image->storeAs('public/images', $imageName);
+                // $imagePath = $image->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $image->move(public_path('storage/images'), $imagePath);  
                 $royalmat->image = $imageName;
             }
             if ($collection_img) {
@@ -195,7 +205,9 @@ class RoyalMattressController extends Controller
                 }
 
                 $imageName = $collection_img->getClientOriginalName();
-                $imagePath = $collection_img->storeAs('public/images', $imageName);
+                // $imagePath = $collection_img->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $collection_img->move(public_path('storage/images'), $imagePath);  
                 $royalmat->collection_img = $imageName;
             }
             if ($img2) {
@@ -208,7 +220,9 @@ class RoyalMattressController extends Controller
                 }
 
                 $imageName = $img2->getClientOriginalName();
-                $imagePath = $img2->storeAs('public/images', $imageName);
+                // $imagePath = $img2->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $img2->move(public_path('storage/images'), $imagePath);  
                 $royalmat->img2 = $imageName;
             }
             if ($img3) {
@@ -221,7 +235,9 @@ class RoyalMattressController extends Controller
                 }
 
                 $imageName = $img3->getClientOriginalName();
-                $imagePath = $img3->storeAs('public/images', $imageName);
+                // $imagePath = $img3->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $img3->move(public_path('storage/images'), $imagePath);  
                 $royalmat->img3 = $imageName;
             }
             if ($img4) {
@@ -234,7 +250,9 @@ class RoyalMattressController extends Controller
                 }
 
                 $imageName = $img4->getClientOriginalName();
-                $imagePath = $img4->storeAs('public/images', $imageName);
+                // $imagePath = $img4->storeAs('public/images', $imageName);
+                $imagePath = 'public/storage/images/' . $imageName; 
+                $img4->move(public_path('storage/images'), $imagePath);  
                 $royalmat->img4 = $imageName;
             }
         
