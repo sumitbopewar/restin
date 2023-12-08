@@ -1,33 +1,80 @@
 @extends('new_layouts.include.app')
 
 @section('content')
+<div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="assets_new/images/A (1).png" class="d-block w-100 position1" alt="...">
+	  <div class="text1">
+	  	<h1>The Mattress <br><span clsas="d-block">that Refreshes you</span></h1>
+	  </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets_new/images/B.png" class="d-block w-100 position2" alt="...">
+	  <div class="text2">
+	  	<h1>The Sleep Is the <br> Best Meditation</h1>
+	  </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 <!-- Start Hero Section -->
-<div class="hero heroImage">
+<!-- <div class="hero heroImage">
 <div class="container" id="hero">
 	<div class="row justify-content-between">
 		<div class="col-lg-5">
 			<div class="intro-excerpt">
-				<h1>The Mattress <span clsas="d-block">that Refreshes you</span></h1>
+				<h1>The Mattress <span clsas="d-block">that Refreshes you</span></h1> -->
 				<!-- <h2 class="text-white">The Sleep Is the Best Meditation</h2> -->
 				<!-- <p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
 					vulputate velit imperdiet dolor tempor tristique.</p> -->
 				<!-- <p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#"
 						class="btn btn-white-outline">Explore</a></p> -->
-			</div>
-		</div>
+			<!-- </div>
+		</div> -->
 		<!-- public/assets_new/images/ -->
 		<!-- <div class="col-lg-7">
 			<div class="hero-img-wrap">
 				<img src="{{ asset('assets_new/images/couch.png') }}" class="img-fluid">
 			</div>
 		</div> -->
-	</div>
+	<!-- </div>
 </div>
-</div>
+</div> -->
 <!-- End Hero Section -->
 
 <style>
-	
+	.position1{
+		position: relative;
+	}
+	.position2{
+		position: relative;
+	}
+	.text1{
+		color: white;
+		position: absolute;
+		top: 50%;
+		left: 20%;
+		transform: translate(-20%, -50%)
+	}
+	.text2{
+		color: white;
+		position: absolute;
+		top: 50%;
+		left: 20%;
+		transform: translate(-20%, -50%)
+	}
+	.text1 h1,.text2 h1{
+		font-size: 58px;
+	}
+
 	.hero.heroImage{
 	  width: 100%; height: 100%;
       background: url('../../assets_new/images/A.png');
@@ -143,7 +190,8 @@
 				<!-- Start Column 2 -->
 				<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 				   <a class="product-item" href="{{route('homemattress')}}">
-					  <img src="{{ asset('layouts/img/home_elite .png') }}" class="img-fluid product-thumbnail">
+					  <!-- <img src="{{ asset('layouts/img/home_elite .png') }}" class="img-fluid product-thumbnail"> -->
+					  <img src="{{ asset('assets_new/images/Elite.png') }}" class="img-fluid product-thumbnail">
 				      <h3 class="product-title">Mattress</h3>
 
 					  <span class="icon-cross">
@@ -292,7 +340,7 @@
 	<div class="testimonial-section">
 		<div class="container-fluid">
 			<div class="row">
-				<video class="img-fluid" autoplay loop muted>
+				<video class="img-fluid p-0" autoplay loop muted>
 				<source src="{{ asset('assets_new/videos/Sequence 04.mp4') }}" type="video/mp4" />
 				</video>
 			</div>
@@ -317,6 +365,7 @@
 		color: white;
 	}
 </style>
+
 <div class="blog-section">
 <div class="container">
 	<div class="row mb-5">
