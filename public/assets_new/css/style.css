@@ -114,17 +114,21 @@ a.more {
   -ms-flex-direction: row;
   flex-direction: row;
 }
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .custom-navbar .custom-navbar-cta {
     margin-left: 40px !important;
   }
-}
+} */
 .custom-navbar .custom-navbar-cta li {
   margin-left: 0px;
   margin-right: 0px;
 }
 .custom-navbar .custom-navbar-cta li:first-child {
   margin-right: 20px;
+}
+
+.carousel{
+  z-index: -1;
 }
 
 .hero {

@@ -30,6 +30,7 @@
         font-weight: 500;
     }
     .img_res{
+    background-image: url('/layouts/img/contact header(1).png');
     height: 40vh;
     background-position: 82%;
     background-size: cover;
@@ -49,7 +50,7 @@
 
 
 <!-- Contact Image Section -->
-<div class="d-flex justify-content-center align-items-center img_res" style="background-image: url('/layouts/img/contact header(1).png');">
+<div class="d-flex justify-content-center align-items-center img_res" style="">
     <div class="">
 
         <h2 class="fw-light"></h2>

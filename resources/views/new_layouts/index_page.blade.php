@@ -28,34 +28,42 @@
 
     <style>
         .position1 {
-            position: relative;
+             position: relative;
         }
 
-        .position2 {
-            position: relative;
-        }
+.position2 {
+  position: relative;
+}
 
-        .text1 {
-            color: white;
-            position: absolute;
-            top: 50%;
-            left: 20%;
-            transform: translate(-20%, -50%)
-        }
+.text1 {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-20%, -50%)
+}
 
-        .text2 {
-            color: white;
-            position: absolute;
-            top: 50%;
-            left: 20%;
-            transform: translate(-20%, -50%)
-        }
+.text2 {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-20%, -50%)
+}
 
-        .text1 h1,
-        .text2 h1 {
-            font-size: 58px;
-        }
-
+@media (min-width:325px) and (max-width:445px){
+.text1 h1 {
+    font-size: 17px;
+  }
+.text2 h1{
+font-size: 17px;
+}
+} 
+@media screen and (min-width:446px){
+    .text1 h1, .text2 h1 {
+        font-size: 58px;
+    }
+} 
         .hero.heroImage {
             width: 100%;
             height: 100%;

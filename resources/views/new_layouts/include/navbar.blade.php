@@ -52,7 +52,7 @@
 				href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 				Mattress
 			</a>
-			<ul class="dropdown-menu" id="d12" style="background: #eeeee4; border-radius:0;">
+			<ul class="dropdown-menu" style="background: #eeeee4; border-radius:0;">
 				<li><a class="dropdown-item text-dark fw-bold" href="{{ route('homesmattress') }}" style="color:black !important;">Home Mattress</a></li>
 
 				<li><a class="dropdown-item text-dark fw-bold" href="{{ route('hospitalmattress') }}" style="color:black !important;">Hospital Mattress</a></li>
@@ -64,12 +64,12 @@
 			<a class="nav-link fw-bold {{ request()->is('royal') ? 'active_page' : '' }}"
 			   href="{{ route('royalemattress') }}">Royale Mattress</a>
 		</li>
-		<li class="nav-item dropdown" id="d13">
+		<li class="nav-item dropdown">
 		   <a class="nav-link fw-bold dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
 				aria-expanded="false">
 				Sleep Essentials
 			</a>
-			<ul class="dropdown-menu" id="d14" style="background: #eeeee4; border-radius: 0;">
+			<ul class="dropdown-menu" style="background: #eeeee4; border-radius: 0;">
 				<li><a class="dropdown-item" href="{{ route('pillows_page') }}" style="color:black !important;">Pillows</a></li>
 
 				<li><a class="dropdown-item" href="{{ route('protector_page') }}" style="color:black !important;">Protector</a></li>
