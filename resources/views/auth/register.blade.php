@@ -198,30 +198,10 @@ a {
                   </div>
                   <form method="POST" action="{{ route('user_register') }}" class="signin-form needs-validation" novalidate>
                       @csrf
-                    <div class="form-group mt-3">
-                      <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required />
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                
-                      <label class="form-control-placeholder p-1 ps-3" for="name">Name</label>
-                    </div>
                     
                     <div class="form-group mt-3">
-                      <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required />
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                
-                      <label class="form-control-placeholder p-1 ps-3" for="email">Email Address</label>
-                    </div>
-                    
-                    <div class="form-group mt-3">
-                      <input id="mobile" type="tel" class="form-control @error('mobile') is-invalid @enderror" name="mobile" pattern="[0-9]{10,11}" value="{{ old('mobile') }}" required />
+                      <input id="mobile" type="number" class="form-control @error('mobile') is-invalid @enderror" name="mobile" pattern="[0-9]{10,11}" value="{{ old('mobile') }}" maxlength="10"
+                      oninput="this.className = '';javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required />
                                 @error('mobile')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -231,28 +211,7 @@ a {
                       <label class="form-control-placeholder p-1 ps-3" for="mobile">Phone Number</label>
                     </div>
                     
-                    <div class="form-group mt-3">
-                      <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address"  value="{{ old('address') }}" required />
-                                @error('address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                
-                      <label class="form-control-placeholder p-1 ps-3" for="address">Address</label>
-                    </div>
-                    
-                    <div class="form-group mt-3">
-                      <input id="pin" type="text" class="form-control @error('pin') is-invalid @enderror" name="pin" pattern="[0-9]{6}"  value="{{ old('pin') }}" required />
-                                @error('pin')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                
-                      <label class="form-control-placeholder p-1 ps-3" for="address">Pin Code</label>
-                    </div>
-                    
+                   
                     <div class="form-group mt-3">
                       <input id="password-confirm" type="password" class="form-control @error('password-confirm') is-invalid @enderror" name="password_confirmation" value="{{ old('password-confirm') }}" required />  
                       <label class="form-control-placeholder p-1 ps-3" for="password-confirm"> Password</label>
@@ -314,14 +273,17 @@ a {
             input.addEventListener('input', function () {
                 if (input.value.trim() !== '') {
                     input.classList.add('has-value');
+                    input.classList.add('form-control');
                 } else {
                     input.classList.remove('has-value');
+                    input.classList.add('form-control');
                 }
             });
 
             // Check the input on page load (in case the browser remembers previous values)
             if (input.value.trim() !== '') {
                 input.classList.add('has-value');
+                    input.classList.add('form-control');
             }
         });
     });

@@ -180,7 +180,7 @@ a {
                       <h3 class="mb-4">Sign In</h3>
                     </div>
                   </div>
-                  <form method="POST" action="{{ route('login') }}" class="signin-form">
+                  <form method="POST" action="/user_login" class="signin-form">
                       @csrf
                         @if (session('success'))
                         <div class="alert alert-info mb-4 p-1 text-center">
@@ -188,14 +188,14 @@ a {
                         </div>
                         @endif
                     <div class="form-group mt-3">
-                      <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required />
+                      <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required />
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                                 
-                      <label class="form-control-placeholder p-1 ps-3" for="Email">Email</label>
+                      <label class="form-control-placeholder p-1 ps-3" for="Email">Mobile No.</label>
                       
                     </div>
                     <div class="form-group mt-4">

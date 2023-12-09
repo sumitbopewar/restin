@@ -58,19 +58,17 @@ class LoginController extends Controller
     public function user_login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required|email',
+            'mobile' => 'required',
             'password' => 'required',
         ]);
-        $remember = $request->has('remember');
+
         if (Auth::guard('web')->attempt($credentials)) {
-            Log::debug('User login successful', ['email' => $credentials['email']]);
-            $intendedUrl = Session::get('url.intended');
-           
-            return redirect()->back();
+            Log::debug('User login successful', ['mobile' => $credentials['mobile']]);
+            return redirect()->intended('/home');
         } else {
-            Log::debug('User login failed', ['email' => $credentials['email']]);
+            Log::debug('Admin login failed', ['mobile' => $credentials['mobile']]);
             return redirect()->back()->withErrors([
-                'email' => 'Invalid credentials.',
+                'mobile' => 'Invalid credentials.',
             ]);
         }
     }
@@ -78,21 +76,16 @@ class LoginController extends Controller
     public function user_register(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
             'mobile' => 'required',
-            'address' => 'required',
-            'pin' => 'required',
             'password' => 'required|min:6|confirmed',
-            'role_access' => 'array'
         ]);
 
         $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
+        $user->name = $request->name ?? null;
+        $user->email = $request->email ?? null;
         $user->mobile = $request->mobile;
-        $user->address = $request->address;
-        $user->pin = $request->pin;
+        $user->address = $request->address ?? null;
+        $user->pin = $request->pin ?? null;
         $user->password = Hash::make($request->password);
         $user->save();
 
