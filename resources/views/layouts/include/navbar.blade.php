@@ -43,13 +43,16 @@
                              width: 100%;">
                 <div class="collapse navbar-collapse" id="navbarsFurni">
                     <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                        <li class="nav-item active">
+                        <li class="nav-item active wow bounceInUp" data-wow-delay="0.1s">
                             <a class="nav-link fw-bold  {{ request()->is('/') ? 'active_page' : '' }}"
                                 aria-current="page" href="{{ route('/') }}">Home</a>
                         </li>
-                        <li><a class="nav-link {{ request()->is('guide_to_good_sleep') ? 'active_page' : '' }}"
+
+                        <li class="wow bounceInUp" data-wow-delay="0.3s"><a
+                                class="nav-link {{ request()->is('guide_to_good_sleep') ? 'active_page' : '' }}"
                                 href="{{ route('guide_to_good_sleep') }}">Guide To Good Sleep</a></li>
-                        <li class="dropdown"><a
+
+                        <li class="dropdown wow bounceInUp" data-wow-delay="0.4s"><a
                                 class="nav-link fw-bold dropdown-toggle {{ request()->is('homemattress') || request()->is('hospital') || request()->is('hotel') ? 'active_page' : '' }}"
                                 href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Mattress
@@ -65,11 +68,13 @@
                                         style="color:black !important;">Hotel Mattress</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
+
+                        <li class="nav-item wow bounceInUp" data-wow-delay="0.5s">
                             <a class="nav-link fw-bold {{ request()->is('royal') ? 'active_page' : '' }}"
                                 href="{{ route('royal') }}">Royale Mattress</a>
                         </li>
-                        <li class="nav-item dropdown" id="d13">
+
+                        <li class="nav-item dropdown wow bounceInUp" data-wow-delay="0.6s" id="d13">
                             <a class="nav-link fw-bold dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Sleep Essentials
@@ -85,7 +90,8 @@
                                         style="color:black !important;">Topper</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
+
+                        <li class="nav-item wow bounceInUp" data-wow-delay="0.7s">
                             <a class="nav-link fw-bold {{ request()->is('contact') ? 'active_page' : '' }}"
                                 href="{{ route('contact') }}">Contact</a>
                         </li>
