@@ -105,11 +105,6 @@
                     </a>
                 </li>
 
-
-
-
-                <!-- Right Side Of Navbar -->
-
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))
