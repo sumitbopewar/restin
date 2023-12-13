@@ -63,11 +63,17 @@ class OrderController extends Controller
    
     public function store(Request $request)
     {
-        
         // database normalization 
         
         $tokenNo = 'ORD-' . strtoupper(uniqid());
         $userId = Auth::id();
+
+        $update_user = User::find($userId);
+        $update_user->name = $request->name;
+        $update_user->email = $request->email;
+        $update_user->pin = $request->pin_code;
+        $update_user->address = $request->delivery_address;
+        $update_user->update();
 
 
         $totalAmount = $request->total_amount;
