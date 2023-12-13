@@ -127,9 +127,9 @@ a.more {
   margin-right: 20px;
 }
 
-.carousel{
+/* .carousel{
   z-index: -1;
-}
+} */
 
 .hero {
   background: #3b5d50;
@@ -254,14 +254,14 @@ a.more {
   }
 }
 
-.btn {
+/* .btn {
   font-weight: 600;
   padding: 12px 30px;
   border-radius: 30px;
   color: #ffffff;
   background: #2f2f2f;
   border-color: #2f2f2f;
-}
+} */
 .btn:hover {
   color: #ffffff;
   background: #222222;
@@ -906,3 +906,7 @@ h2{
   color: rgba(49, 48, 48, 0.949);
   font-weight: bold;
 }
+
+
+
+/* PRIVACY PAGE DESIGN */

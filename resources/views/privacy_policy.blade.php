@@ -1,94 +1,258 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="p-5 mt-5">
-        <h1>Privacy Policy for Restin Mattress</h1>
+<style>
+    .privacy-page-top {
+    color: #888888;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1.5em;
+    margin-top: 5%;
+    font-weight: bold;
+    margin-left: 12%;
+}
+.privacy-page-body {
+    display: inline-block;
+    margin-left: 12%;
+    margin-right: 5%;
+}
 
-<p>At restin.in, accessible from https://restin.in/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by restin.in and how we use it.</p>
+.privacy-page-title {
+    font-family: "Roboto", sans-serif;
+    color: #2781bc;
+    font-size:4.5em;
+    margin-bottom: 5%;
+    font-weight: lighter;
+    display: inline-block;
+    width: 100%;
+    margin-top: 26px;
+}
 
-<p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p>
+.privacy-paragraph-heading {
+    font-family: "Abhaya Libre", sans-serif;
+    color: black;
+    font-weight: bolder;
+    font-size: 1.5em;
+    margin-bottom: 3%;
+}
 
-<p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in restin.in. This policy is not applicable to any information collected offline or via channels other than this website.</p>
+.privacy-content {
+    font-family: 'Abhaya Libre', sans-serif;
+    margin-bottom: 8%;
+    display: inline-block;
+    width: 70%;
+}
 
-<h2>Consent</h2>
+.privacy-paragraph-body{
+    margin-right: 4%;
+    margin-bottom: 4em;
+}
 
-<p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
+.privacy-paragraph-text-followed{
+    margin-bottom:1em;
+    color: #717171;
+}
 
-<h2>Information we collect</h2>
+.privacy-paragraph-text {
+    color: #717171;
+}
 
-<p>The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.</p>
-<p>If you contact us directly, we may receive additional information about you such as your name, email address, phone number, the contents of the message and/or attachments you may send us, and any other information you may choose to provide.</p>
-<p>When you register for an Account, we may ask for your contact information, including items such as name, company name, address, email address, and telephone number.</p>
+.privacy-paragraph-body {
+    line-height: 2em;
+    font-family: 'Cabin', sans-serif;
+}
 
-<h2>How we use your information</h2>
+.privacy-policy-nav-menu {
+    width:27%;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
 
-<p>We use the information we collect in various ways, including to:</p>
+.privacy-nav-menu-wrapper{
+    background-color: #f39c12;
+    list-style-type: none;
+    padding: 0;
+    margin:0;
+    display: block;
+}
 
-<ul>
-<li>Provide, operate, and maintain our website</li>
-<li>Improve, personalize, and expand our website</li>
-<li>Understand and analyze how you use our website</li>
-<li>Develop new products, services, features, and functionality</li>
-<li>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</li>
-<li>Send you emails</li>
-<li>Find and prevent fraud</li>
-</ul>
+.privacy-nav-menu-wrapper a{
+    display: block;
+    height: inherit;
+    width: inherit;
+    padding-left: 1em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
 
-<h2>Log Files</h2>
+.privacy-nav-menu2, .privacy-nav-menu1{
+    display: block;
+    background-color: #f39c12;
+}
+.site-map-link:hover, .privacy-policy-link, .privacy-policy-link:hover {
+    color: white;
+    text-decoration: none;
 
-<p>restin.in follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.</p>
+}
 
+.privacy-nav-menu2 {
+    background-color: white;
+    border-bottom-width: 2px;
+    border-bottom-style: groove;
+    border-bottom-color: #f6f6f6;
+}
 
+.site-map-link{
+    color: #f39c12;
+    text-decoration: none;
 
+}
 
-<h2>Advertising Partners Privacy Policies</h2>
+.privacy-nav-menu2:hover{
+    background-color: #f39c12;
+}
 
-<P>You may consult this list to find the Privacy Policy for each of the advertising partners of restin.in.</p>
+@media (min-width: 481px) and (max-width:1080px){
+    .privacy-content {
+        font-family: 'Abhaya Libre', sans-serif;
+        margin-bottom: 8%;
+        display: inline-block;
+        width: 100%;
+    }
+}
+@media (max-width: 481px) {
 
-<p>Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on restin.in, which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.</p>
+    .privacy-page-body, .privacy-page-top, .privacy-page-title, .privacy-content {
+        width: 90%;
+        margin-right: 0;
+        text-align: left;
+    }
 
-<p>Note that restin.in has no access to or control over these cookies that are used by third-party advertisers.</p>
+    .privacy-policy-nav-menu {
+        width: 80%;
+        margin-bottom: 3.5em;
+    }
 
-<h2>Third Party Privacy Policies</h2>
+    .privacy-page-top {
+        padding-bottom: 15px;
+    }
 
-<p>restin.in's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options. </p>
+    .privacy-page-title {
+        font-size: 3em;
+        line-height: 1em;
+    }
+}
+ul li {
+    list-style: none;
+}
+ul li p::before{
+    content: '\f00c';
+    font-family: FontAwesome;
+    margin-right: 20px;
+}
 
-<p>You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites.</p>
+</style>
 
-<h2>CCPA Privacy Rights (Do Not Sell My Personal Information)</h2>
+    <div class="privacy-page-top">Restin Mattress</div>
+    <div class="privacy-page-body">
+        <div class="privacy-content" >
+            <div class="privacy-page-title">Privacy Policy</div>
+            <div class="privacy-paragraph-heading">Privacy Statement</div>
+            <div class="privacy-paragraph-body privacy-paragraph-text">
+                <p>At restin.in, accessible from https://restin.in/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by restin.in and how we use it.</p>
+                <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p>
+                <p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in restin.in. This policy is not applicable to any information collected offline or via channels other than this website.</p>
+            </div>
+            <div class="privacy-paragraph-heading">Consent</div>
+            <div class="privacy-paragraph-body privacy-paragraph-text-followed">
+                <p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
+            </div>
+            <div class="privacy-paragraph-heading">Information we collect</div>
+            <div class="privacy-paragraph-body privacy-paragraph-text-followed">
+                <p>The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.If you contact us directly, we may receive additional information about you such as your name, email address, phone number, the contents of the message and/or attachments you may send us, and any other information you may choose to provide.</p>
+            </div>
+            <div class="privacy-paragraph-body privacy-paragraph-text-followed">
+                <p>When you register for an Account, we may ask for your contact information, including items such as name, company name, address, email address, and telephone number.</p>
+            </div>
+            <div class="privacy-paragraph-heading">How we use your information</div>
+                    <div class="privacy-paragraph-body privacy-paragraph-text-followed">
+                        <p>We use the information we collect in various ways, including to:</p>
+                        <ul>
+                            <li><p>Provide, operate, and maintain our website</p></li>
+                            <li><p>Improve, personalize, and expand our website</p></li>
+                            <li><p>Understand and analyze how you use our website</p></li>
+                            <li><p>Develop new products, services, features, and functionality</p></li>
+                            <li><p>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</p></li>
+                            <li><p>Send you emails</p></li>
+                            <li><p>Find and prevent fraud</p></li>
+                        </ul>
+                    </div>
+            <div class="privacy-paragraph-heading">Log Files</div>
+                    <div class="privacy-paragraph-body privacy-paragraph-text">
+                        <p>restin.in follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.</p>
+                    </div>
+            <div class="privacy-paragraph-heading">Advertising Partners Privacy Policies</div>
+                    <div class="privacy-paragraph-body privacy-paragraph-text">
+                        <p>You may consult this list to find the Privacy Policy for each of the advertising partners of restin.in.</p>
+                        <p>Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on restin.in, which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.</p>
+                        <p>Note that restin.in has no access to or control over these cookies that are used by third-party advertisers.</p>
+                    </div>
+                    <div class="privacy-paragraph-heading">Third Party Privacy Policies</div>
+                    <div class="privacy-paragraph-body privacy-paragraph-text">
+                        <p>restin.in's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.</p>
+                        <p>
+                        You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites.
+                        </p>
+                    </div>
 
-<p>Under the CCPA, among other rights, California consumers have the right to:</p>
-<p>Request that a business that collects a consumer's personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.</p>
-<p>Request that a business delete any personal data about the consumer that a business has collected.</p>
-<p>Request that a business that sells a consumer's personal data, not sell the consumer's personal data.</p>
-<p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
+                    <div class="privacy-paragraph-heading">CCPA Privacy Rights (Do Not Sell My Personal Information)</div>
+                    <div class="privacy-paragraph-body privacy-paragraph-text">
+                        <p>Under the CCPA, among other rights, California consumers have the right to:</p>
+                        <ul>
+                            <li><p>Request that a business that collects a consumer's personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.</p></li>
+                            <li><p>Request that a business delete any personal data about the consumer that a business has collected.</p></li>
+                            <li><p>Request that a business that sells a consumer's personal data, not sell the consumer's personal data.</p></li>
+                            <li><p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p></li>
+                        </ul>
+                    </div>
 
-<h2>GDPR Data Protection Rights</h2>
+                    <div class="privacy-paragraph-heading">GDPR Data Protection Rights</div>
+                    <div class="privacy-paragraph-body privacy-paragraph-text">
+                        <p>We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:</p>
+                        <ul>
+                            <li><p>The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service.</p></li>
+                            <li><p>The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.</p></li>
+                            <li><p>The right to erasure – You have the right to request that we erase your personal data, under certain conditions.</p></li>
+                            <li><p>The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.</p></li>
+                            <li><p>The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.</p></li>
+                            <li><p>The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</p></li>
+                            <li><p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p></li>
+                        </ul>
+                    </div>
 
-<p>We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:</p>
-<p>The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service.</p>
-<p>The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.</p>
-<p>The right to erasure – You have the right to request that we erase your personal data, under certain conditions.</p>
-<p>The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.</p>
-<p>The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.</p>
-<p>The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</p>
-<p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
+                    <div class="privacy-paragraph-heading">Children's Information</div>
+                    <div class="privacy-paragraph-body privacy-paragraph-text">
+                        <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
+                        <p>restin.in does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
+                    </div>
 
-<h2>Children's Information</h2>
+                    <div class="privacy-paragraph-heading">Changes to This Privacy Policy</div>
+                    <div class="privacy-paragraph-body privacy-paragraph-text">
+                        <p>We may update our Privacy Policy from time to time. Thus, we advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately, after they are posted on this page.</p>
+                        <p>Our Privacy Policy was created with the help of the Privacy Policy Generator.</p>
+                    </div>
 
-<p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
+                    <div class="privacy-paragraph-heading">Contact Us</div>
+                    <div class="privacy-paragraph-body privacy-paragraph-text">
+                        <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.</p>
+                    </div>
 
-<p>restin.in does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
-
-<h2>Changes to This Privacy Policy</h2>
-
-<p>We may update our Privacy Policy from time to time. Thus, we advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately, after they are posted on this page.</p>
-
-<p>Our Privacy Policy was created with the help of the <a href="https://www.termsfeed.com/privacy-policy-generator/">Privacy Policy Generator</a>.</p>
-
-<h2>Contact Us</h2>
-
-<p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.</p>
-
+        </div>
+        <!-- <div class="privacy-policy-nav-menu">
+            <ul class="privacy-nav-menu-wrapper">
+                <li class='privacy-nav-menu1' ><a href="../privacy" class="privacy-policy-link">Privacy Policy </a></li>
+                <li class="privacy-nav-menu2" ><a href="#" class="site-map-link">Site Map</a></li>
+            </ul>
+        </div> -->
     </div>
 @endsection

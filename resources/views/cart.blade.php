@@ -48,6 +48,165 @@
         .icon-text {
             margin-top: 10px;
         }
+        .quantity-input{
+            width: 50px;
+            text-align: center;
+            font-size: 29px;
+            border: none;
+            background: none;
+        }
+        #sec2{
+            display: none;
+        }
+        .billing_container {
+            max-width: 900px;
+            margin: 0px auto;
+            /* background-color: #e8eaf6; */
+            padding: 0px;
+        }
+
+        .box-right {
+            padding: 5px;
+            background-color: white;
+            border-radius: 15px
+        }
+
+        .box-left {
+            padding: 5px;
+            background-color: white;
+            border-radius: 15px
+        }
+
+        .text-muted {
+            color: #7a7a7a
+        }
+
+        .bg-green {
+            background-color: #d4f8f2;
+            color: #06e67a;
+            padding: 3px 0;
+            display: inline;
+            border-radius: 25px;
+            font-size: 11px
+        }
+
+        .p-blue {
+            font-size: 14px;
+            color: #1976d2
+        }
+
+        .fas.fa-circle {
+            font-size: 12px
+        }
+
+        .p-org {
+            font-size: 14px;
+            color: #fbc02d
+        }
+
+        .h7 {
+            font-size: 15px
+        }
+
+        .h8 {
+            font-size: 12px
+        }
+
+        .h9 {
+            font-size: 10px
+        }
+
+        .bg-blue {
+            background-color: #dfe9fc9c;
+            border-radius: 5px
+        }
+
+        .form-control {
+            box-shadow: none !important
+        }
+
+        .card input::placeholder {
+            font-size: 14px
+        }
+
+        ::placeholder {
+            font-size: 14px
+        }
+
+        input.card {
+            position: relative
+        }
+
+        .far.fa-credit-card {
+            position: absolute;
+            top: 10px;
+            padding: 0 15px
+        }
+
+        .fas,
+        .far {
+            cursor: pointer
+        }
+
+        .cursor {
+            cursor: pointer
+        }
+
+        .btn.btn-primary {
+            box-shadow: none;
+            height: 40px;
+            padding: 11px
+        }
+
+        .bg.btn.btn-primary {
+            background-color: transparent;
+            border: none;
+            color: #1976d2
+        }
+
+        .bg.btn.btn-primary:hover {
+            color: #539ee9
+        }
+
+        @media(max-width:320px) {
+            .h8 {
+                font-size: 11px
+            }
+
+            .h7 {
+                font-size: 13px
+            }
+
+            ::placeholder {
+                font-size: 10px
+            }
+        }
+       
+        .btn1 {
+            box-shadow: none;
+            height: 40px;
+            width: 100%;
+            padding: 0px !important;
+            margin-bottom: 12px;
+        }
+
+        .btn.btn-primary{
+            padding: 7px !important;
+        }
+        .col-2 .text-muted {
+            text-align: center;
+        }
+        .show-modal{
+            display: none;
+        }
+        .modal-footer {
+            padding: 0rem;
+        }
+        #backBtn{
+            cursor: pointer;
+            font-size: 15px;
+            margin-left: 10px;
+        }
     </style>
 
 
@@ -247,7 +406,7 @@
                             </div>
                             <div class="align-self-center"><a href="{{ url('cart_item/delete/' . $item->id) }}"
                                     class="" onclick="alert('Remove this cart item');"><i
-                                        class="fa-regular fa-trash-can fs-5"></i></a></div>
+                                        class="fa-regular fa-trash-can fs-5 text-danger"></i></a></div>
                         </div>
                         <div class="d-flex justify-content-between my-2 border-bottom">
                             <div>
@@ -311,31 +470,136 @@
                             <span id="total-amount">{{ number_format($totalPrice, 2) }}</span></span>
                     </div>
 
+                    
+                    <!-- <div class="btn btn-primary next_process">Next Process</div> -->
+
+                    <button type="button" class="btn btn-primary btn1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Next
+                    </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Personal Information</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            <div id="sec1">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Enter Your Name</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Enter Your Email Address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="validationCustom05" class="form-label">Enter Pin Code</label>
+                                    <input type="" class="form-control" id="validationCustom05" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputAddress" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="inputAddress" required>
+                                </div>
+                            </div>
+                            
+                            <div id="sec2">
+                                <div class="container billing_container">
+                                    <div class="row m-0">
+                                        <div class="col-12 p-0">
+                                            <div class="box-left">
+                                                <!-- <p class="text-muted h8">Invoice</p>
+                                                <hr> -->
+                                                <p class="fw-bold h7">Alex Parkinson</p>
+                                                <p class="text-muted h8">3897 Hickroy St, salt Lake city</p>
+                                                <p class="text-muted h8 mb-2">Utah, United States 84104</p>
+                                            <div class="h8">
+                                            <div class="row m-0 border mb-3">
+                                                <div class="col-6 h8 pe-0 ps-2">
+                                                    <p class="text-muted py-2">Items</p> <span class="d-block py-2 border-bottom">Legal
+                                                    Advising</span> <span class="d-block py-2">Expert Consulting</span>
+                                                </div>
+                                                <div class="col-2 text-center p-0">
+                                                    <p class="text-muted p-2">Qty</p> <span class="d-block p-2 border-bottom">2</span> <span
+                                                    class="d-block p-2">1</span>
+                                                </div>
+                                                <div class="col-2 p-0 text-center h8 border-end">
+                                                    <p class="text-muted p-2">Price</p> <span class="d-block border-bottom py-2"><span
+                                                    class="fas fa-dollar-sign"></span>500</span> <span class="d-block py-2 "><span
+                                                    class="fas fa-dollar-sign"></span>400</span>
+                                                </div>
+                                                <div class="col-2 p-0 text-center">
+                                                    <p class="text-muted p-2">Total</p> <span class="d-block py-2 border-bottom"><span
+                                                    class="fas fa-dollar-sign"></span>1000</span> <span class="d-block py-2"><span
+                                                    class="fas fa-dollar-sign"></span>400</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex h7 mb-2">
+                                                <p class=""><strong>Total Amount : </strong></p>
+                                                <p class="ms-auto"><span class="fas fa-dollar-sign"></span>1400</p>
+                                            </div>
+                                            <div class="h8 mb-5">
+                                                <p class="text-muted">Lorem ipsum dolor sit amet elit. Adipisci ea harum sed quaerat tenetur
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer none_content hide-modal">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="ref">Close</button>
+                        <button type="button" class="btn btn-primary" id="nextBtn">Next Step</button>
+                    </div>
+                    <div class="modal-footer block_content show-modal">
+                        <!-- <i class="fa-solid fa-arrow-left" id="backBtn"></i> -->
+                        <img src="{{ asset('/assets_new/images/icons8-left-arrow-30.png') }}" alt="" id="backBtn" title="back button">
+                        <div class="d-flex mt-4">
+                            <button type="button" name="payment_mode" value="COD"
+                                class="btn-lg btn-danger rounded-0 w-50 my-3 me-4 btncod"> Cash On Delivery
+                            </button>
+                            <button type="button" name="payment_mode" value="ONLINE" data-totalValue="{{ $totalPrice }}"
+                                class="btn-lg btn-danger rounded-0 w-50 my-3 ms-4 razorpay-payment-button btnpay"> Pay Online
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                   <!-- <div class="form_none">
                     <div class="mt-3">
                         <span>Delivery Address:</span>
                         @foreach ($user as $userData)
+
+                            <input type="text" name="name" class="form-control rounded-0 my-2 border-1"
+                             placeholder="Enter Your Name" value="">
+
+                            <input type="text" name="email_address" class="form-control rounded-0 my-2 border-1"
+                             placeholder="Enter Your Email Address" value="">
+
                             <input type="number" name="pin_code" class="pin_code form-control rounded-0 my-2 border-1"
                                 placeholder="Enter Pin Code" value="{{ $userData->pin }}">
-
 
                             <textarea type="text" name="delivery_address" class="delivery_address form-control rounded-0 border-1"
                                 placeholder="Enter Address" cols="" rows="">{{ $userData->address }}</textarea>
                         @endforeach
 
                     </div>
-
-                    <div class="d-flex mt-4">
-                        <button type="button" name="payment_mode" value="COD"
-                            class="btn-lg btn-danger rounded-0 w-50 my-3 me-4 btncod"> Cash On Delivery
-                        </button>
-                        <button type="button" name="payment_mode" value="ONLINE" data-totalValue="{{ $totalPrice }}"
-                            class="btn-lg btn-danger rounded-0 w-50 my-3 ms-4 razorpay-payment-button btnpay"> Pay Online
-                        </button>
-
-                    </div>
-
+                        <div class="d-flex mt-4 payment_btns">
+                            <button type="button" name="payment_mode" value="COD"
+                                class="btn-lg btn-danger rounded-0 w-50 my-3 me-4 btncod"> Cash On Delivery
+                            </button>
+                            <button type="button" name="payment_mode" value="ONLINE" data-totalValue="{{ $totalPrice }}"
+                                class="btn-lg btn-danger rounded-0 w-50 my-3 ms-4 razorpay-payment-button btnpay"> Pay Online
+                            </button>
+    
+                        </div>
+                    </div> -->
                 </div>
-
             </div>
         </form>
     </div>
@@ -854,7 +1118,43 @@
     </script>
     
 
+    <script>
 
+            // Assuming sec1 and sec2 are sections representing different pages
+            let sec1 = document.querySelector('#sec1');
+            let sec2 = document.querySelector('#sec2');
+            let hide_modal = document.querySelector('.hide-modal');
+            let show_modal = document.querySelector('.show-modal');
+            let nextBtn = document.querySelector('#nextBtn');
+            let backBtn = document.querySelector('#backBtn');
+            let plus_Counter = 0; 
+            let minus_Counter = plus_Counter.length;
 
+            nextBtn.addEventListener('click', () => {
+                sec1.style.display = "none";
+                sec2.style.display = "block";
 
+                plus_Counter++;
+                if (plus_Counter === 1) {
+                    hide_modal.style.display = "none";
+                    show_modal.style.display = "block";
+                }
+                // Add the current page to the history
+                history.pushState({ page: 2 }, "Title", "#sec2"); // Assuming sec2 is the identifier for the second page
+            });
+
+            backBtn.addEventListener('click', () => {
+                sec2.style.display = "none";
+                sec1.style.display = "block";
+
+                plus_Counter--; // Decrement counter when going back
+                if (plus_Counter === 0) {
+                    hide_modal.style.display = "block";
+                    show_modal.style.display = "none";
+                }
+                // Go back in history when the back button is clicked
+                history.back();
+            });
+
+    </script>
 @endsection

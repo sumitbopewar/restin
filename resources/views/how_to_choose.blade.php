@@ -4,7 +4,7 @@
 @section('content')
 
 
-<style>
+<!-- <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
     
@@ -32,9 +32,9 @@
             height: 95px;
             object-fit: contain;
         }
-        </style>
+        </style> -->
 
-<div class="container content_container">
+<!-- <div class="container content_container">
 
     <div class="contents">
         
@@ -57,7 +57,7 @@
             <p>
                 One of the most important factors to achieve a better night's sleep is a comfortable amount of space. Generally, a mattress should be longer and wider than the amount of space you and your partner users to sleep. The following size are a general guide to help you make a better decision.
             </p>
-        </div>
+        </div> -->
         
         
         <!--<div class="mt-5 mb-5">-->
@@ -69,7 +69,7 @@
             
 
             
-        </div>
+        <!-- </div> -->
         <!--<h3 class="mb-5">For choosing the right mattress you can do the SLEEP test-->
         <!--</h3>-->
         <!--<div class="mb-5 f-size">-->
@@ -85,7 +85,7 @@
         <!--    to pick up the old mattress. Recyclers usually pick up the old mattress from Retailers and grind down all of-->
         <!--    the materials for recycling.</p>-->
 
-        <h3 class="mb-3 text-center text-lg-end text-md-end">We also make mattress as per customers <br>
+        <!-- <h3 class="mb-3 text-center text-lg-end text-md-end">We also make mattress as per customers <br>
             specifications</h3>
         
         
@@ -109,15 +109,57 @@
         <p class="mb-3">The following chart shows that Waist, Shoulders & Hips constitute 2/3 of the body weight while
             sleeping. These parts are provided extra cushioning to ensure proper body support.</p>
         <p class="mb-5">Restin Mattresses are designed to support body weight so that the Person is put to maximum ease
-            and comfort while sleeping.</p>
+            and comfort while sleeping.</p> -->
 
         <!--<div class="mb-5" style="margin: auto; display: flex; justify-content: center;">-->
         <!--    <img src="{{asset('layouts/img/mattress size chart.png')}}" class="img-responsive img-fluid" alt="">-->
         <!--</div>-->
 
-    </div>
+    <!-- </div>
 
-</div>
+</div> -->
+
+
+<div class="we-help-section pt-5" style="background: #fff;">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-7 mb-5 mb-lg-0">
+                    <img class="para-img img-fluid" src="{{ asset('layouts/img/royal-img2.jpg') }}" alt="">
+                </div>
+                <div class="col-lg-5 ps-lg-5">
+                    <h2 class="section-title mb-4">How to choose the right mattress</h2>
+                    <p>
+                    The difference between quality mattresses and less expensive mattresses includes features that you can visibly see and other features that are not visible. One can see the difference with the mattress top, the height of a mattress and the outer fabric; however you can’t see the construction materials used underneath the top layer. It’s a combination of all you can and can’t see, that make for a quality mattress. All these factors help determine the durability and firmness along with the overall comfort level a mattress can provide.
+                    </p>
+                    <img src="{{ asset('layouts/img/mattress size chart.png') }}" class="product_img p-0 img-fluid"
+                        alt="Pillow img">
+                </div>
+                <p>One of the most important factors to achieve a better night's sleep is a comfortable amount of space. Generally, a mattress should be longer and wider than the amount of space you and your partner users to sleep. The following size are a general guide to help you make a better decision.</p>
+            </div>
+            <div class="row justify-content-between mt-5">
+                <div class="col-lg-12 ps-lg-5">
+                    <h2 class="section-title mb-4 text-center">We also make mattress as per customers
+specifications</h2> 
+                    <p>Mattress are custom made to meet your sleeping needs and habits. You can choose the Thickness, Comfort level (Soft, Medium, Hard) & the Fabric to get the mattress you want at no extra cost.
+                    The best way to get rid of the old Mattress is to ask the store you purchase a new mattress from to pick up the old mattress. Recyclers usually pick up the old mattress from Retailers and grind down all of the materials for recycling.</p>
+                </div>
+                <div class="col-lg-12 mb-5 mb-lg-0">
+                    <img class="para-img img-fluid" src="{{ asset('layouts/img/mattress sizes (1).png') }}" alt="">
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="mb-5" style="margin: auto; display: flex; justify-content: center;">
+                    <img src="{{asset('layouts/img/htc-img01.jpg')}}" class="img-responsive img-fluid p-1" alt="">
+                </div>
+
+                <p class="mb-3">The following chart shows that Waist, Shoulders & Hips constitute 2/3 of the body weight while
+                sleeping. These parts are provided extra cushioning to ensure proper body support.</p>
+                <p class="mb-5">Restin Mattresses are designed to support body weight so that the Person is put to maximum ease
+                and comfort while sleeping.</p> 
+            </div>
+        </div>
+    </div>
+    <!-- End We Help Section -->
 
 <script>
     $(document).ready(function() {

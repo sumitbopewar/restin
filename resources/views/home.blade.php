@@ -117,6 +117,9 @@
                 height: 50px;
             }
         }
+        .carousel {
+            z-index: -1; 
+        }
     </style>
 
     <!-- Start Product Section -->

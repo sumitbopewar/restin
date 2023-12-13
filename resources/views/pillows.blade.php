@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('style')
     <style>
+        body{
+        background: #fff !important;
+        }
         .page-header {
             background: linear-gradient(rgb(1 10 53 / 37%), rgb(1 10 53 / 36%)), url('../../layouts/img/Pillow Header.png') center center no-repeat;
             background-size: cover;
@@ -132,7 +135,7 @@
                 <div class="container">
                     <div class="row justify-content-around">
                         @foreach ($pillow as $item)
-                        <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+                        <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0 shadow">
                             <a class="product-item" href="">
                                 <img src="{{ asset('layouts/img/' . $item->image) }}"
                                     class="img-fluid product-thumbnail">

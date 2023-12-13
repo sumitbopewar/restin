@@ -1,22 +1,29 @@
 @extends('layouts.app')
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 <style>
     /* Add this CSS to your stylesheet */
+    body{
+        background: #fff !important;
+    }
     .zoom-container {
         position: relative;
         overflow: hidden;
     }
 
-    .zoomed-image {
-        position: absolute;
-        top: 0;
-        left: 100%;
-        /* Initially, place it outside the container */
-        opacity: 0;
-        transform: scale(1.5);
-        /* Adjust the zoom level as needed */
-        transition: opacity 0.3s, transform 0.3s;
+    .car-img {
+    width: 100%;
+    height: 450px;
+    object-fit: scale-down;
     }
+    .zoomed-image {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: opacity 0.3s, transform 0.3s;
+}
 
     .caro-img:hover .zoomed-image {
         opacity: 1;
@@ -97,6 +104,500 @@
             position: unset;
         }
     }
+
+</style>
+
+<style>
+.carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 16.25rem;
+    left: 7%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: left;
+}
+
+.carousel-indicators {
+  left: 100px !important;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+  background-color: red;
+}
+
+.card {
+  width: 400px;
+  margin: 20px;
+  padding: 0px;
+}
+
+.card-img-top:hover {
+  position: relative;
+  float: center;
+  z-index: 2;
+  width: 400px;
+  height: auto;
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+:active,
+:hover,
+:focus {
+outline: 0 !important;
+outline-offset: 0;
+}
+
+a,
+a:hover {
+text-decoration: none;
+}
+
+
+  /* Guide to Good Sleep Section */
+h4{
+  font-weight: 550;
+}
+.p1 {
+  margin-top: 50px;
+  font-size: large;
+  line-height: 2;
+  width: 100%;
+}
+
+.p {
+  font-size: large;
+  line-height: 2;
+  width: 50%;
+}
+.img-fluid{
+  padding-left: 30px;
+}
+
+/* view product  */
+
+._slider {
+  width: 60%;
+  height: 50%
+}
+
+.asdf {
+  display: flex;
+  margin: auto;
+  /* justify-content: space-between; */
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.block_img {
+  height: 100px;
+  width: 132px;
+}
+
+
+.target-img {
+  margin: 3px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.img_btn {
+  border: none;
+}
+
+.product-card {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  /*height: 70%;*/
+  margin: auto;
+  padding-top: 2rem;
+}
+
+.main_card {
+  border: 1px solid rgba(0, 0, 0, .125);
+  margin-top: 8rem;
+  margin-bottom: 4rem;
+  width: 90%;
+}
+
+._content {
+  width: 35%;
+  height: 100%;
+}
+
+.inpt {
+  margin-bottom: 1.3rem;
+}
+
+.car-img {
+  width: 100%;
+  height: 450px;
+  object-fit: scale-down;
+}
+
+.quantity-section {
+  display: flex;
+  align-items: center;
+  border: 0.5px solid white;
+
+  font-size: 2rem;
+  background-color: white;
+
+}
+
+.quantity-input {
+  width: 70px;
+  text-align: center;
+  border: none;
+  font-size: 2rem;
+}
+
+.foot {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.sz-btn {
+  margin: 1px;
+}
+
+.button {
+  float: left;
+  margin: 0 2px 0 0;
+  width: 79px;
+  height: 40px;
+  position: relative;
+  margin-bottom: 1.3rem;
+}
+
+.button label,
+.button input {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.button input[type="radio"] {
+  opacity: 0.011;
+  z-index: 100;
+}
+
+.button input[type="radio"]:checked+label {
+  background: #0075bc;
+  border-radius: 4px;
+  color: white;
+}
+
+
+
+.button {
+  border: 2px solid #0075bc;
+  border-radius: .5rem;
+}
+
+.button label {
+  cursor: pointer;
+  z-index: 90;
+  line-height: 1.5em;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1000px) {
+  .product-card {
+      display: block;
+  }
+
+  ._slider {
+      width: 100%;
+  }
+
+  .content {
+      width: 100%;
+  }
+
+  .car-img {
+      width: 100%;
+      height: 340px;
+      object-fit: scale-down;
+  }
+
+  .block_img {
+      height: 59px;
+      width: 91px;
+  }
+
+  ._content {
+      width: 100%;
+      height: 100%;
+  }
+
+  .product-card {
+      padding-top: 0px;
+  }
+
+  .button {
+      float: left;
+      margin: 0 2px 0 0;
+      width: 70px;
+      height: 40px;
+      position: relative;
+      margin-bottom: 1.3rem;
+  }
+}
+.form-select {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+  -webkit-padding-start: calc(0.75rem - 3px);
+  -moz-padding-start: calc(0.75rem - 3px);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #454546;
+  background-color: white;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  border: 2px solid #0075bc;
+  border-radius: 0.25rem;
+  /* transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+
+.form-select:focus {
+  box-shadow: none;
+}
+
+.form-control {
+  border: 2px solid #0075bc;
+}
+
+.form-control:focus {
+  color: #454546;
+  background-color: #fff;
+  /*border-color: #86b7fe; */
+  outline: 0;
+  box-shadow: none;
+  font-weight: 600;
+}
+
+.carousel-control-prev {
+  display: none;
+}
+
+.carousel-control-next {
+  display: none;
+}
+
+.form-label {
+  margin-bottom: 0px;
+  font-size: 0.9rem;
+}
+
+.form-label {
+  margin-bottom: 0px;
+  font-size: 0.8rem;
+  color: #0070b4;
+  font-weight: 600;
+}        
+
+/* view product end */
+.img_res{
+    height:420px!important;
+    background-size:100% 100%;
+}
+@media screen and (max-width: 600px){
+        .img_res{
+        background-size:100% 100%;
+        height:170px!important;
+        padding:0px!important;
+        font-size: 35px;
+    }
+}
+.fixed-icon {
+    position: fixed!important;
+    bottom: 20px!important;
+    right: 20px!important;
+    background-color: green!important;
+    padding: 7px 14px!important;
+    border-radius: 50px!important;
+    z-index: 999999!important;
+}
+
+.btn-check:focus+.btn, .btn:focus {
+    outline: 0!important;
+    box-shadow: none!important;
+}
+/* .btns .btn {
+    text-align: center;
+    padding: 0px;
+    border-radius: 30px;
+    color: #000;
+    background: #fff;
+    border-color: none;
+} */
+    .show_morediv{
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+    }
+
+@media screen and (max-width: 600px) {
+    .carousel {
+        margin-top: 4.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        font-weight: 900;
+        margin-bottom: 0rem;
+        font: bold;
+    }
+
+    .hero_slider .carousel-caption {
+        text-align: left;
+        top: 30%;
+        left: 64%;
+        right: 80%;
+        font: bold;
+        font-weight: 500;
+        bottom: 0;
+        right: 0;
+        transform: translate(-75%, -35%);
+        max-width: 1320px;
+    }
+
+    .buynow {
+       margin-top: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        padding-left: 0.5rem !important;
+        font-size: 0.7rem;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .cart-container{
+        padding: 0px;
+    }
+    
+    #home{
+        margin-top: 59px;
+        height: 269px;
+    }
+    
+    .carousel-indicators {
+     left: 0px !important; 
+    }
+    
+    .caro-img{
+     height: 267px;
+    }
+    
+    
+}
+
+
+.icon_section {
+    margin: auto;
+}
+
+@media screen and (max-width: 590px) {
+   
+
+    .icon-title {
+        font-weight: 700;
+        margin-bottom: 32px;
+        font-size:10px;
+    }
+
+    .icon-img {
+        margin-top: 0px;
+        width: 130px;
+    }
+    
+    .product_btns{
+        margin: 5px;
+    }
+}
+
+        .product_btns{
+                color: #333;
+                background-color: #c2eaff;
+                border-color: #c2eaff;
+                font-weight: 600;
+        }
+        
+        .product_btns.active{
+                color: #333;
+                background-color: #c2eaff;
+                border-color: #c2eaff;
+                font-weight: 600;
+        }
+        
+        .product_btns:hover{
+                color: #333;
+                background-color: #c2eaff;
+                border-color: #c2eaff;
+                font-weight: 600;
+        }
+        
+        .product_btns.active:focus{
+                box-shadow: 0 0 0 0.25rem rgb(255 255 255 / 50%)
+        }
+/*home page css*/
+/*footer page css */
+
+
+.social{
+            margin-right: 10px;
+        }
+/*footer page css */
+
+/*guide to good sleep */
+    
+    /* *{
+        font-family: 'Lato', sans-serif;
+    } */
+    
+    .para-img{
+        object-fit: contain;
+    }
+    
+    @media screen and (min-width: 1400px) {
+      .bottom_div{
+            margin-top: -27px;
+      }
+    }
+/*guide to good sleep */
+
+
+
+.btns .button .btn{
+   
+    font-weight: 100;
+     padding: 6px 12px; 
+     border-radius: 0px; 
+     border:0!important;
+     color: black; 
+     background: none; 
+     border-color: blue!important; 
+
+}
+
+
 </style>
 
 @section('content')
@@ -126,19 +627,19 @@
                     </div>
                     <div class="carousel-item caro-img">
                         <div class="zoom-container">
-                            <img src="{{ asset('storage/images/' . $home_mattress->img2) }}" class="d-block w-100 car-img"
+                            <img src="{{ asset('storage/images/' . $home_mattress->img2) }}" class="d-block w-100 car-img simg"
                                 alt="...">
                             <div class="zoomed-image">
-                                <img src="{{ asset('storage/images/' . $home_mattress->img2) }}" alt="Zoomed Image">
+                                <img src="{{ asset('storage/images/' . $home_mattress->img2) }}" alt="Zoomed Image simg">
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item caro-img">
-                        <img src="{{ asset('storage/images/' . $home_mattress->img3) }}" class="d-block w-100 car-img"
+                        <img src="{{ asset('storage/images/' . $home_mattress->img3) }}" class="d-block w-100 car-img simg"
                             alt="...">
                     </div>
                     <div class="carousel-item caro-img">
-                        <img src="{{ asset('layouts/img/how_to_choose.jpg') }}" class="d-block w-100 car-img"
+                        <img src="{{ asset('layouts/img/how_to_choose.jpg') }}" class="d-block w-100 car-img simg"
                             alt="...">
                     </div>
                 </div>

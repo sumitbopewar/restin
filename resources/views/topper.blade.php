@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('style')
     <style>
+        body{
+            background: #fff;
+        }
         .page-header {
             background: linear-gradient(rgb(1 10 53 / 37%), rgb(1 10 53 / 36%)), url('{{ asset('layouts/img/tooper_head.png') }}') center center no-repeat;
             background-size: cover;
@@ -94,7 +97,7 @@
                 <div class="container">
                     <div class="row">
                         @foreach ($topper as $item)
-                            <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+                            <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0 shadow">
                                 <a class="product-item" href="">
                                     <img src="{{ asset('storage/images/' . $item->image1) }}"
                                         class="img-fluid product-thumbnail">

@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('style')
     <style>
+        body{
+            background: #fff;
+        }
         .page-header {
             background: linear-gradient(rgb(1 10 53 / 37%), rgb(1 10 53 / 36%)), url('../../layouts/img/Protector Header.png') center center no-repeat;
             background-size: cover;
@@ -93,7 +96,7 @@
                                 class="img-fluid ps-0 my-4">
                         </div>
                         @foreach ($protector as $item)
-                        <div class="col-12 col-lg-3 mb-5 mb-md-0" style="margin-top:15px;">
+                        <div class="col-12 col-lg-3 mb-5 mb-md-0 shadow" style="margin-top:15px;">
                             <a class="product-item" href="">
                                 <img src="{{ asset('storage/images/' . $item->image1) }}" class="img-fluid product-thumbnail">
                                 <h3 class="product-title">{{ $item->product }}</h3>

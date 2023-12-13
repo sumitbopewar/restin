@@ -24,6 +24,9 @@
             font-weight: 700;
             font-size: 15px;
         }
+        .product-section{
+            padding-top: 2rem;
+        }
     </style>
 @endsection
 @section('content')
