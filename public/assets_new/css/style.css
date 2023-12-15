@@ -39,8 +39,11 @@ a.more {
 }
 
 .custom-navbar {
+  display: flex;
+  
   /* background: #3b5d50 !important; */
   background-color: #4439c6 !important;
+  z-index: 999 !important;
 }
 .custom-navbar .navbar-brand {
   font-size: 32px;
@@ -910,3 +913,18 @@ h2{
 
 
 /* PRIVACY PAGE DESIGN */
+
+/* Responsive for Mobile View  */
+
+@media screen and (max-width: 780px){
+  .testimonial-section{
+    padding: 0 !important;
+  }
+}
+
+
+.payment_methods_img img {
+  width: 70px !important;
+  height: 100%;
+}
+

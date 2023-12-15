@@ -214,6 +214,21 @@
              font-size: 15px;
              margin-left: 10px;
          }
+         .empty_img{
+            width: 250px;
+            height: 100%;
+         }
+         
+         .width-set{
+            width: 56%;
+            margin: auto;
+         }
+
+         @media screen and (min-width:300px) and (max-width:767px) {
+            .width-set{
+            width: 100%;
+         }
+         }
      </style>
 
 
@@ -229,8 +244,15 @@
          </div>
      </div>
      @if (count($cartItems) === 0)
-         <div class="d-flex justify-content-center m-5">
-             <img src="{{ asset('layouts/img/cartEmpty.png') }}" alt="emptyCart">
+         <div class="d-flex flex-column justify-content-center align-items-center m-5 mx-auto">
+             <!-- <img src="{{ asset('layouts/img/cartEmpty.png') }}" alt="emptyCart"> -->
+                   <img src="{{ asset('assets_new/images/empty.svg') }}" alt="emptyCart" class="empty_img">
+                    <h2>Your shopping cart is empty</h2>
+                   <div class="">
+                   <p class="mb-4 text-center width-set">
+                        Return to the store to add items for your delivery slot. Before proceed to checkout you must add some products to your shopping cart. You will find a lot of interesting products on our shop page.
+                    </p>
+                   </div>
          </div>
      @else
          <div class="container">

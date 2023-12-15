@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
-    <!-- Bootstrap CSS -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 	<link href="{{ asset('assets_new/css/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('assets_new/css/tiny-slider.css') }}" rel="stylesheet">
@@ -28,6 +27,7 @@
 </div>
     @stack('plugin-scripts')
     <script src="{{ asset('assets_new/js/bootstrap.bundle.min.js') }}"></script>
+
 	<script src="{{ asset('assets_new/js/tiny-slider.js') }}"></script>
 	<script src="{{ asset('assets_new/js/custom.js') }}"></script>
     @stack('custom-scripts')
@@ -48,8 +48,6 @@
                 }
           );
     </script>
-    
-
 </body>
 
 </html>
