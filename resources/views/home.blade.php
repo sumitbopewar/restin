@@ -50,9 +50,11 @@
             transform: translate(-20%, -50%)
         }
 
-        .text1 h1,
-        .text2 h1 {
-            font-size: 58px;
+        @media screen and (min-width: 767px){
+            .text1 h1,
+            .text2 h1 {
+             font-size: 58px;
+            }
         }
 
         .hero.heroImage {
@@ -117,9 +119,60 @@
                 height: 50px;
             }
         }
-        .carousel {
-            z-index: -1; 
+        
+        @media screen and (max-width:330px){
+            #carouselExampleRide{
+                height: 35vh;
+            }
+            .text1 h1, .text2 h1{
+                font-size: 20px !important;
+                width: 133px;
+            }
         }
+        @media screen and (min-width:331px) and (max-width:550px){
+            #carouselExampleRide{
+                height: 35vh;
+            }
+        }
+        .carousel-inner, .carousel-item, img{
+            height: 100%;
+        }
+
+        @media screen and (max-width: 767px){
+            .product-section {
+               padding: 1.5rem 0;
+            }
+            .why-choose-section {
+              padding-top: 0px;
+            }
+            .why-choose-section .row .col-lg-5{
+                margin-top: 4.5rem;
+            }
+            .we-help-section {
+                margin-top: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 999px){
+            .product-section {
+               padding: 1.5rem 0;
+            }
+            .why-choose-section {
+              padding-top: 0px;
+            }
+            .we-help-section {
+                margin-top: 2rem;
+                margin-left: 31px;
+            }
+        }
+
+        @media screen and (min-width: 515px)and (max-width:999px){
+            .why-choose-section .row .col-lg-5 {
+                margin-top: 4.5rem;
+                margin-left: 1rem;
+            }
+        }
+        
     </style>
 
     <!-- Start Product Section -->
@@ -181,7 +234,7 @@
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-lg-6 mb-4">
-                    <div class="row my-5">
+                    <div class="row my-lg-5">
                         <div class="col-6 col-md-6">
                             <div class="feature">
                                 <div class="icon">

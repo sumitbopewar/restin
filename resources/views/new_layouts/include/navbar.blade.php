@@ -1,9 +1,10 @@
 
 	<style>
-		.custom-navbar{
-			position: sticky;
-			top: 0;
-			}
+		.custom-navbar {
+    		position: sticky;
+    		top: 0;
+    		z-index: 999 !important;
+		}
 		.custom-navbar .custom-navbar-nav li a {
 			font-weight: 500;
 			/* color: #ffffff !important; */
@@ -19,7 +20,7 @@
 			}
 		}	
 	</style>
-    <div class="container-fluid p-0 m-0">
+    <!-- <div class="container-fluid p-0 m-0"> -->
 		<!-- Start Header/Navigation -->
 	<nav class="custom-navbar navbar navbar navbar-expand-lg navbar-dark bg-dark" arial-label="Furni navigation bar">
 
@@ -37,9 +38,9 @@
 			background: #eeeee4 important;
 		}
 	</style>
-	<div class="container-fluid" style="
-                                 width: 100%;">
-	<div class="collapse navbar-collapse" id="navbarsFurni">
+	<!-- <div class="container-fluid" style="
+                                 width: 100%;"> -->
+	<div class="collapse navbar-collapse" id="navbarsFurni" data-bs-toggle="#navbarsFurni">
 		<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 			<li class="nav-item active">
 			<a class="nav-link fw-bold  {{ request()->is('index_page') ? 'active_page' : '' }}" aria-current="page"
@@ -88,5 +89,11 @@
 		</ul>
 	</div>
 </div>
-
 </nav>
+<script>
+  $(document).ready(function() {
+    $('.navbar-toggler').on('click', function() {
+      $('#navbarsFurni').toggleClass('show');
+    });
+  });
+</script>

@@ -271,13 +271,6 @@ a:hover {
 		text-align: left !important;
 	}
 }
-/*footer page css */
-
-/*guide to good sleep */
-
-/* *{
-font-family: 'Lato', sans-serif;
-} */
 
 .para-img {
 	object-fit: contain;
@@ -288,7 +281,13 @@ font-family: 'Lato', sans-serif;
 		margin-top: -27px;
 	}
 }
-
+.footer-links{
+	margin: 0px !important;
+}
+.footer_icons{
+	width: 20px !important;
+}
+        
 /*guide to good sleep */
 </style>
 <div class="area">
@@ -309,7 +308,7 @@ font-family: 'Lato', sans-serif;
 	<!-- Remove the container if you want to extend the Footer to full width. -->
 	<div class="container my-5">
 		<!-- Footer -->
-		<footer class="text-center text-lg-start text-white">
+		<footer class="text-lg-start text-white">
 			<!-- Section: Social media -->
 			<section class="d-flex justify-content-between p-4" style="background-color: rgba(0, 0, 0, 0.099)">
 				<!-- Left -->
@@ -332,14 +331,8 @@ font-family: 'Lato', sans-serif;
 			<!-- Section: Social media -->
 
 			<!-- Section: Links  -->
-
-			<style>
-				.footer-links{
-					margin: 0px !important;
-				}
-			</style>
 			<section class="information-block">
-				<div class="container text-center text-md-start mt-5 information footer-links">
+				<div class="container text-md-start mt-5 information footer-links">
 					<!-- Grid row -->
 					<div class="row row-cols-1 row-cols-lg-4 row-cols-md-2 g-4 mt-3 d-flex">
 						<!-- Grid column -->
@@ -350,14 +343,7 @@ font-family: 'Lato', sans-serif;
 								style="width: 60px; background-color: #7c4dff; height: 2px" />
 							<div
 								class="row rows-cols-md-2 payment_methods_img d-flex justify-content-center align-items-center">
-								<style>
-									.payment_methods_img img {
-										width: 90px;
-										height: 100%;
-										object-fit: scale-down;
-									}
-								</style>
-								<img src="{{ asset('layouts/img/visa.png') }}" alt="">
+								<img class="footer_icons" src="{{ asset('layouts/img/visa.png') }}" alt="">
 								<img class="footer_icons" src="{{ asset('layouts/img/money.png') }}" alt="">
 
 								<img class="footer_icons" src="{{ asset('layouts/img/atm-card.png') }}" alt="">
@@ -378,20 +364,20 @@ font-family: 'Lato', sans-serif;
 							<hr class="mb-4 mt-0 d-inline-block mx-auto"
 								style="width: 60px; background-color: #7c4dff; height: 2px" />
 							<p>
-							<a href="{{Route('homesmattress')}}" class="text-white fs-6 fw-normal">Mattress</a>
+							<a href="{{Route('homesmattress')}}" class="text-white fs-6 fw-normal text">Mattress</a>
 							</p>
 							<p>
-								<a href="{{Route('royalemattress')}}" class="text-white fs-6 fw-normal">Royal
+								<a href="{{Route('royalemattress')}}" class="text-white fs-6 fw-normal text">Royal
 									Mattress</a>
 							</p>
 							<p>
-								<a href="{{Route('pillows_page')}}" class="text-white fs-6 fw-normal">Pillows</a>
+								<a href="{{Route('pillows_page')}}" class="text-white fs-6 fw-normal text">Pillows</a>
 							</p>
 							<p>
-								<a href="{{Route('protector_page')}}" class="text-white fs-6 fw-normal">Protector</a>
+								<a href="{{Route('protector_page')}}" class="text-white fs-6 fw-normal text">Protector</a>
 							</p>
 							<p>
-								<a href="{{Route('topper_page')}}" class="text-white fs-6 fw-normal">Topper</a>
+								<a href="{{Route('topper_page')}}" class="text-white fs-6 fw-normal text">Topper</a>
 							</p>
 						</div>
 						<!-- Grid column -->
@@ -403,17 +389,17 @@ font-family: 'Lato', sans-serif;
 							<hr class="mb-4 mt-0 d-inline-block mx-auto"
 								style="width: 60px; background-color: #7c4dff; height: 2px" />
 							<p>
-								<a href="{{ Route('policy') }}" class="text-white fs-6 fw-normal">Privacy &
+								<a href="{{ Route('policy') }}" class="text-white fs-6 fw-normal text">Privacy &
 									policy</a></ </p>
 							<p>
-								<a href="{{Route('conditions')}}" class="text-white fs-6 fw-normal">Terms &
+								<a href="{{Route('conditions')}}" class="text-white fs-6 fw-normal text">Terms &
 									conditions</a>
 							</p>
 							<p>
-								<a href="{{route('warranty')}}" class="text-white fs-6 fw-normal">Warranty</a>
+								<a href="{{route('warranty')}}" class="text-white fs-6 fw-normal text">Warranty</a>
 							</p>
 							<p>
-								<a href="{{route('how_to_choose')}}" class="text-white fs-6 fw-normal">How to
+								<a href="{{route('how_to_choose')}}" class="text-white fs-6 fw-normal text">How to
 									choose
 									Right mattress?</a>
 							</p>
