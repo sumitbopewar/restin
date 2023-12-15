@@ -151,7 +151,7 @@
                 <!-- Start Column 3 -->
                 <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
                     <a class="product-item" href="{{ route('royal') }}">
-                        <img src="{{ asset('layouts/img/home_royale.png') }}" class="img-fluid product-thumbnail">
+                        <img src="{{ asset('layouts/img/01 Royale Latex.png') }}" class="img-fluid product-thumbnail">
                         <h3 class="product-title">Royale Series</h3>
                         <span class="icon-cross">
                             <img src="{{ asset('layouts/img/icons8-plus.svg') }}" class="img-fluid">
@@ -318,7 +318,7 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md-6">
-                    <h2 class="section-title">Recent Blog</h2>
+                    <h2 class="section-title">Recent Mattress</h2>
                 </div>
                 <div class="col-md-6 text-start text-md-end">
                     <a href="#" class="more">View All Posts</a>
@@ -329,7 +329,7 @@
 
                 <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
                     <div class="post-entry">
-                        <a href="#" class="post-thumbnail"><img src="{{ asset('layouts/img/Onyx.png') }}"
+                        <a href="#" class="post-thumbnail"><img src="{{ asset('storage/images/01 Onyx.png') }}"
                                 alt="Image" class="img-fluid"></a>
                         <div class="post-content-entry">
                             <h3><a href="#" class="text-dark">Onyx</a></h3>
@@ -340,7 +340,7 @@
                 <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
                     <div class="post-entry">
                         <a href="#" class="post-thumbnail"><img
-                                src="{{ asset('layouts/img/Royal Memory (A).png') }}" alt="Image"
+                                src="{{ asset('layouts/img/01 Royale Memory.png') }}" alt="Image"
                                 class="img-fluid"></a>
                         <div class="post-content-entry">
                             <h3><a href="#" class="text-dark">Royale Memory</a></h3>
@@ -350,7 +350,7 @@
 
                 <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
                     <div class="post-entry">
-                        <a href="#" class="post-thumbnail"><img src="{{ asset('layouts/img/Pearl.png') }}"
+                        <a href="#" class="post-thumbnail"><img src="{{ asset('storage/images/01 Pearl.png') }}"
                                 alt="Image" class="img-fluid"></a>
                         <div class="post-content-entry">
                             <h3><a href="#" class="text-dark">Pearl</a></h3>
